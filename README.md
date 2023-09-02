@@ -1,16 +1,7 @@
-# seckill_deal
+# 简介
 
-A seckill deal flutter mobile project.
+用flutter来写的秒杀应用。
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+这是 [秒杀应用后端](https://github.com/weiraneve/seckillcloud)
+的mobile端，这里还有[web端](https://github.com/weiraneve/seckill-front)
+，以及[后台配置web](https://github.com/weiraneve/seckillcloud)
