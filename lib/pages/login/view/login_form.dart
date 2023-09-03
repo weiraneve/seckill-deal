@@ -23,6 +23,7 @@ class _LoginFromState extends State<LoginFrom> {
   @override
   Widget build(BuildContext context) {
     return Consumer<LoginProvider>(builder: (context, provider, child) {
+      checkLoginState(provider.state);
       return Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
@@ -56,7 +57,7 @@ class _LoginFromState extends State<LoginFrom> {
               ),
             ),
           ),
-          _buildLoginButton(provider.state),
+          _buildLoginButton(),
           GestureDetector(
             onTap: () {
               Get.toNamed(Routes.register);
@@ -78,27 +79,27 @@ class _LoginFromState extends State<LoginFrom> {
     });
   }
 
-  void _doLogin(AuthState state) {
-    if (_preValidate(_phoneNumController.text, _passwordController.text)) {
-      _login();
+  void checkLoginState(AuthState state) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       if (state is AuthSuccess) {
         Toast.toast(context, '登录成功!',
             color: Colors.green, duration: const Duration(seconds: 2));
         Get.toNamed(Routes.goodsList, arguments: state.msg);
-      }
-      if (state is AuthFailure) {
+      } else if (state is AuthFailure) {
         Toast.toast(context, '登录失败 : ${state.error}!',
             color: Colors.red, duration: const Duration(seconds: 2));
       }
+    });
+  }
+
+  void _doLogin() {
+    if (_preValidate(_phoneNumController.text, _passwordController.text)) {
+      Provider.of<LoginProvider>(context, listen: false)
+          .login(_phoneNumController.text, _passwordController.text);
     }
   }
 
-  Future<void> _login() async {
-    await Provider.of<LoginProvider>(context, listen: false)
-        .login(_phoneNumController.text, _passwordController.text);
-  }
-
-  Widget _buildLoginButton(AuthState state) {
+  Widget _buildLoginButton() {
     return Container(
         margin: const EdgeInsets.only(top: 10, left: 10, right: 10, bottom: 0),
         height: 40,
@@ -110,7 +111,7 @@ class _LoginFromState extends State<LoginFrom> {
                 borderRadius: BorderRadius.all(Radius.circular(20))),
             backgroundColor: Colors.blue,
           ),
-          onPressed: () => {_doLogin(state)},
+          onPressed: () => {_doLogin()},
           child: Text(stringRes(R.login),
               style: const TextStyle(
                   color: Colors.white,
