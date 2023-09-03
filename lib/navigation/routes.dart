@@ -1,5 +1,5 @@
 import 'package:get/get_navigation/src/routes/get_route.dart';
-import 'package:seckill_deal/pages/login/login_page.dart';
+import 'package:seckill_deal/pages/login/view/login_page.dart';
 import 'package:seckill_deal/pages/register/register_page.dart';
 
 abstract class Routes {

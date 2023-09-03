@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-
-import '../../component/background/arch_background.dart';
-import 'login_form.dart';
+import 'package:seckill_deal/component/background/arch_background.dart';
+import 'package:seckill_deal/pages/login/view/login_form.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});

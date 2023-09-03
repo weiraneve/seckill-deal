@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:seckill_deal/common/auth/state.dart';
 
-import '../../component/input/icon_input.dart';
-import '../../navigation/routes.dart';
-import '../../res/strings.dart';
-import '../../utils/toast.dart';
+import '../../../component/input/icon_input.dart';
+import '../../../navigation/routes.dart';
+import '../../../res/strings.dart';
+import '../../../utils/toast.dart';
 
 class LoginFrom extends StatefulWidget {
   const LoginFrom({super.key});
