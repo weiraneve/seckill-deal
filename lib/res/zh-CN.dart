@@ -13,6 +13,6 @@ const Map<R, String> zhCN = {
   R.passwordHint: '密码',
   R.needRegister: '没有账号，立即注册',
   R.loginEmptyError: '登录失败 : 手机号和密码不能为空!',
-  R.phoneFormatError: 'Login failed: Please enter the correct phone number',
+  R.phoneFormatError: '登录失败 : 请输入正确的手机号!',
   R.serverErrorMessage: 'Server Error',
 };
