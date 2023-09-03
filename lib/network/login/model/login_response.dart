@@ -4,7 +4,7 @@ part 'login_response.g.dart';
 
 @JsonSerializable()
 class LoginResponse {
-  final String? code;
+  final int? code;
   final String? data;
   final String? msg;
 
