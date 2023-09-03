@@ -84,6 +84,7 @@ class _LoginFromState extends State<LoginFrom> {
       if (state is AuthSuccess) {
         Toast.toast(context, '登录成功!',
             color: Colors.green, duration: const Duration(seconds: 2));
+        Get.toNamed(Routes.goodsList, arguments: state.msg);
       }
       if (state is AuthFailure) {
         Toast.toast(context, '登录失败 : ${state.error}!',
