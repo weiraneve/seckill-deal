@@ -14,4 +14,5 @@ const Map<R, String> enUS = {
   R.needRegister: 'No account, register now',
   R.loginEmptyError: 'Login failed: Mobile phone number and password cannot be empty!',
   R.phoneFormatError: 'Login failed: Please enter the correct phone number',
+  R.serverErrorMessage: 'Server Error',
 };

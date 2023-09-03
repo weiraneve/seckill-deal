@@ -42,4 +42,5 @@ enum R {
   needRegister,
   loginEmptyError,
   phoneFormatError,
+  serverErrorMessage,
 }
