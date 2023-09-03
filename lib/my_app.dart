@@ -12,8 +12,11 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: stringRes(R.appName),
-      initialRoute: Routes.home,
+      initialRoute: Routes.login,
       getPages: AppPages.pages,
+      locale: StringResources.locale,
+      fallbackLocale: StringResources.fallbackLocale,
+      translations: StringResources(),
     );
   }
 }

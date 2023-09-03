@@ -17,13 +17,12 @@ class StringResources extends Translations {
   static const fallbackLocale = Locale('en', 'US');
 
   static final Map<String, String> _enUS =
-  enUS.map((key, value) => MapEntry(key.name, value));
+      enUS.map((key, value) => MapEntry(key.name, value));
   static final Map<String, String> _zhCN =
-  zhCN.map((key, value) => MapEntry(key.name, value));
+      zhCN.map((key, value) => MapEntry(key.name, value));
 
   @override
-  Map<String, Map<String, String>> get keys =>
-      {
+  Map<String, Map<String, String>> get keys => {
         'en_US': _enUS,
         'zh_CN': _zhCN,
       };
@@ -33,4 +32,14 @@ stringRes(R key) => key.name.tr;
 
 enum R {
   appName,
+  loginTitle,
+  registerTitle,
+  login,
+  register,
+  loginHint,
+  registerHint,
+  passwordHint,
+  needRegister,
+  loginEmptyError,
+  phoneFormatError,
 }
