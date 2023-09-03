@@ -11,21 +11,18 @@ class AuthInitial extends AuthState {
 }
 
 class AuthFailure extends AuthState {
-  final String error;
+  final String? error;
 
-  const AuthFailure(this.error);
-
-  @override
-  List<Object> get props => [error];
-
-  @override
-  String toString() {
-    return 'AuthFailure{message: $error}';
-  }
+  const AuthFailure({this.error});
 }
 
 class LogOuted extends AuthState {}
 
-class AuthSuccess extends AuthState {}
+class AuthSuccess extends AuthState {
+  final String? data;
+  final String? msg;
+
+  AuthSuccess(this.data, this.msg);
+}
 
 class AuthLoading extends AuthState {}

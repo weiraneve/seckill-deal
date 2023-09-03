@@ -1,36 +1,44 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:seckill_deal/common/auth/state.dart';
 import 'package:seckill_deal/common/logger.dart';
 import 'package:seckill_deal/network/login/model/login_request.dart';
-import 'package:seckill_deal/network/login/model/login_response.dart';
 import 'package:seckill_deal/pages/login/repository/repository.dart';
 
 class LoginProvider extends ChangeNotifier {
   final LoginRepository _repository;
-  LoginResponse? _response;
   AuthState _state = const AuthInitial();
 
   LoginProvider({LoginRepository? repository})
       : _repository = repository ?? LoginRepository();
 
-  LoginResponse? get response => _response;
-
   AuthState get state => _state;
 
   Future<void> login(String mobile, String password) async {
     try {
-      final loginRequest = LoginRequest(mobile, password);
-      _state = AuthLoading();
-      notifyListeners();
-      _response = await _repository.login(loginRequest);
-      _state = AuthSuccess();
-      notifyListeners();
+      _updateState(AuthLoading());
+      final response = await _repository.login(LoginRequest(mobile, password));
+      _updateState(AuthSuccess(response.data, response.msg));
     } catch (e) {
-      logger.e(e);
-      _state = const AuthFailure('errorMsg');
-      _response = const LoginResponse(405, 'errorData', 'errorMsg');
-    } finally {
-      notifyListeners();
+      _handleError(e);
     }
+  }
+
+  void _updateState(AuthState state) {
+    _state = state;
+    notifyListeners();
+  }
+
+  void _handleError(Object e) {
+    String errorMessage = "未知错误";
+    if (e is DioException) {
+      final response = e.response;
+      if (response != null && response.data is Map) {
+        errorMessage = response.data['msg'] ?? errorMessage;
+      }
+    }
+
+    logger.e(e);
+    _updateState(AuthFailure(error: errorMessage));
   }
 }
