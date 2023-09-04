@@ -9,14 +9,14 @@ import '../../../navigation/routes.dart';
 import '../../../res/strings.dart';
 import '../../../utils/toast.dart';
 
-class LoginFrom extends StatefulWidget {
-  const LoginFrom({super.key});
+class LoginForm extends StatefulWidget {
+  const LoginForm({super.key});
 
   @override
-  State<LoginFrom> createState() => _LoginFromState();
+  State<LoginForm> createState() => _LoginFormState();
 }
 
-class _LoginFromState extends State<LoginFrom> {
+class _LoginFormState extends State<LoginForm> {
   final _phoneNumController = TextEditingController();
   final _passwordController = TextEditingController();
 

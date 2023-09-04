@@ -1,8 +1,8 @@
 import 'package:get/get.dart';
 import 'package:seckill_deal/network/client.dart';
 import 'package:seckill_deal/network/login/api.dart';
-import 'package:seckill_deal/network/login/model/login_request.dart';
-import 'package:seckill_deal/network/login/model/login_response.dart';
+import 'package:seckill_deal/network/login/model/request.dart';
+import 'package:seckill_deal/network/login/model/response.dart';
 
 class LoginRepository {
   final LoginApi _api;

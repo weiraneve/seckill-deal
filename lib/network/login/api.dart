@@ -1,10 +1,10 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:seckill_deal/common/constants.dart';
-import 'package:seckill_deal/network/login/model/login_response.dart';
+import 'package:seckill_deal/network/login/model/response.dart';
 
 import '../config.dart';
-import 'model/login_request.dart';
+import 'model/request.dart';
 
 part 'api.g.dart';
 

@@ -41,6 +41,9 @@ enum R {
   passwordHint,
   needRegister,
   loginEmptyError,
+  registerEmptyError,
   phoneFormatError,
+  registerFormatError,
   serverErrorMessage,
+  passwordConfirmHint,
 }

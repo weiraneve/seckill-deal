@@ -13,6 +13,9 @@ const Map<R, String> enUS = {
   R.passwordHint: 'password',
   R.needRegister: 'No account, register now',
   R.loginEmptyError: 'Login failed: Mobile phone number and password cannot be empty!',
+  R.registerEmptyError: 'Register failed: Mobile phone number, password and confirm password cannot be empty!',
   R.phoneFormatError: 'Login failed: Please enter the correct phone number',
+  R.registerFormatError: 'Register failed: Please enter the correct phone number and password',
   R.serverErrorMessage: 'Server Error',
+  R.passwordConfirmHint: 'Confirm Password',
 };
