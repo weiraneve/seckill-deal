@@ -16,7 +16,10 @@ class RegisterPage extends StatelessWidget {
       child: Scaffold(
           body: SingleChildScrollView(
         child: Wrap(children: [
-          Stack(children: [ArchBackground(height: winSize.height * 0.3)]),
+          Stack(children: [
+            ArchBackground(height: winSize.height * 0.3),
+            const Positioned(top: 20, child: BackButton(color: Colors.white))
+          ]),
           Container(
               width: winSize.width,
               padding: const EdgeInsets.only(left: 20, right: 20, top: 0),
