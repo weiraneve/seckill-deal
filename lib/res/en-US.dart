@@ -18,4 +18,5 @@ const Map<R, String> enUS = {
   R.registerFormatError: 'Register failed: Please enter the correct phone number and password',
   R.serverErrorMessage: 'Server Error',
   R.passwordConfirmHint: 'Confirm Password',
+  R.logout: 'Logout',
 };

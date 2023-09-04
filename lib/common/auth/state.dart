@@ -19,10 +19,9 @@ class AuthFailure extends AuthState {
 class LogOuted extends AuthState {}
 
 class AuthSuccess extends AuthState {
-  final String? data;
   final String? msg;
 
-  AuthSuccess(this.data, this.msg);
+  AuthSuccess(this.msg);
 }
 
 class AuthLoading extends AuthState {}

@@ -46,4 +46,5 @@ enum R {
   registerFormatError,
   serverErrorMessage,
   passwordConfirmHint,
+  logout,
 }

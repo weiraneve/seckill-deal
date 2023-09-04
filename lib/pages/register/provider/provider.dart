@@ -21,7 +21,7 @@ class RegisterProvider extends ChangeNotifier {
       _updateState(AuthLoading());
       final response =
           await _repository.register(RegisterRequest(mobile, password));
-      _updateState(AuthSuccess(response.data, response.msg));
+      _updateState(AuthSuccess(response.msg));
     } catch (e) {
       _handleError(e);
     }

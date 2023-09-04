@@ -18,4 +18,5 @@ const Map<R, String> zhCN = {
   R.registerFormatError: '注册失败 : 请输入正确的手机号和密码!',
   R.serverErrorMessage: '服务器异常',
   R.passwordConfirmHint: '确定密码',
+  R.logout: '注销',
 };

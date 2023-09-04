@@ -1,4 +1,5 @@
 import "package:dio/dio.dart";
+import "package:seckill_deal/utils/auth.dart";
 
 import "../common/logger.dart";
 import "../res/strings.dart";
@@ -18,6 +19,11 @@ class DioInterceptor extends Interceptor {
       "Custom-Key": "Custom",
     };
 
+    if (auth.isAuthenticated) {
+      String token = auth.authToken;
+      defaultHeaders[_authorization] = "Bearer $token";
+    }
+
     options.headers.addAll(defaultHeaders);
     super.onRequest(options, handler);
   }
@@ -27,9 +33,14 @@ class DioInterceptor extends Interceptor {
     int statusCode = err.response?.statusCode ?? 0;
     if (_statusCodeMessages.containsKey(statusCode)) {
       logger.i(_statusCodeMessages[statusCode]);
+      if (statusCode == 401 || statusCode == 403) {
+        auth.logout();
+      }
     } else {
       logger.e(stringRes(R.serverErrorMessage));
     }
     super.onError(err, handler);
   }
 }
+
+const _authorization = 'Authorization';
