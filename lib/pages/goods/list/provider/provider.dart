@@ -4,27 +4,22 @@ import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:seckill_deal/common/auth/state.dart';
 import 'package:seckill_deal/common/logger.dart';
-import 'package:seckill_deal/network/login/model/request.dart';
-import 'package:seckill_deal/pages/login/repository/repository.dart';
-import 'package:seckill_deal/utils/auth.dart';
-import 'package:seckill_deal/utils/token_storage.dart';
+import 'package:seckill_deal/pages/goods/list/repository/repository.dart';
 
-class LoginProvider extends ChangeNotifier {
-  final LoginRepository _repository;
+class GoodsListProvider extends ChangeNotifier {
+  final GoodsListRepository _repository;
   AuthState _state = const AuthInitial();
 
-  LoginProvider({LoginRepository? repository})
-      : _repository = repository ?? LoginRepository();
+  GoodsListProvider({GoodsListRepository? repository})
+      : _repository = repository ?? GoodsListRepository();
 
   AuthState get state => _state;
 
-  Future<void> login(String mobile, String password) async {
+  Future<void> goodsList() async {
     try {
       _updateState(AuthLoading());
-      final response = await _repository.login(LoginRequest(mobile, password));
-      _updateState(AuthSuccess(response.msg));
-      await tokenStorage.set(response.data ?? '');
-      await auth.loadAuthToken();
+      final response = await _repository.goodsList();
+      _updateState(AuthSuccess(response.data?.first.goods?.goodsName));
     } catch (e) {
       _handleError(e);
     }
@@ -41,7 +36,7 @@ class LoginProvider extends ChangeNotifier {
       final response = e.response;
       if (e.error is SocketException) {
         errorMessage = '网络错误';
-      } else if (response != null && response.data is Map) {
+      } else if (response != null) {
         errorMessage = response.data['msg'] ?? errorMessage;
       }
     }

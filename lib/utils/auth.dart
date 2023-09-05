@@ -1,5 +1,4 @@
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:seckill_deal/navigation/routes.dart';
 import 'package:seckill_deal/utils/token_storage.dart';
 

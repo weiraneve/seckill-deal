@@ -14,28 +14,18 @@ class DioInterceptor extends Interceptor {
 
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
-    final defaultHeaders = {
-      "Content-Type": "application/json",
-      "Custom-Key": "Custom",
-    };
-
-    if (auth.isAuthenticated) {
-      String token = auth.authToken;
-      defaultHeaders[_authorization] = "Bearer $token";
-    }
-
-    options.headers.addAll(defaultHeaders);
+    options.headers[_authorization] = "Bearer ${auth.authToken}";
     super.onRequest(options, handler);
   }
 
   @override
   void onError(DioException err, ErrorInterceptorHandler handler) {
     int statusCode = err.response?.statusCode ?? 0;
+    if (statusCode == 401 || statusCode == 403) {
+      auth.logout();
+    }
     if (_statusCodeMessages.containsKey(statusCode)) {
       logger.i(_statusCodeMessages[statusCode]);
-      if (statusCode == 401 || statusCode == 403) {
-        auth.logout();
-      }
     } else {
       logger.e(stringRes(R.serverErrorMessage));
     }

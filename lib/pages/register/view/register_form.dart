@@ -79,11 +79,11 @@ class _RegisterFormState extends State<RegisterForm> {
   void checkRegisterState(AuthState state) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (state is AuthSuccess) {
-        Toast.toast(context, '注册成功!',
+        Toast.toast(context, '获取成功!',
             color: Colors.green, duration: const Duration(seconds: 2));
         Get.toNamed(Routes.goodsList, arguments: state.msg);
       } else if (state is AuthFailure) {
-        Toast.toast(context, '注册失败 : ${state.error}!',
+        Toast.toast(context, '获取失败 : ${state.error}!',
             color: Colors.red, duration: const Duration(seconds: 2));
       }
     });
