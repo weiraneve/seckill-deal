@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class Toast {
   static toast(BuildContext context, String msg,
-      {duration = const Duration(milliseconds: 2000),
+      {duration = const Duration(milliseconds: 1000),
       Color? color,
       SnackBarAction? action}) {
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
