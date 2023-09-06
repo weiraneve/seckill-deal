@@ -57,11 +57,9 @@ class _GoodsListPageState extends State<GoodsListPage> {
   void checkLoginState(AuthState state) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (state is AuthSuccess) {
-        Toast.toast(context, '获取数据成功成功! ${state.msg}',
-            color: Colors.green, duration: const Duration(seconds: 2));
+        Toast.success(context, '获取数据成功成功! ${state.msg}');
       } else if (state is AuthFailure) {
-        Toast.toast(context, '获取数据失败 : ${state.error}!',
-            color: Colors.red, duration: const Duration(seconds: 2));
+        Toast.error(context, '获取数据失败 : ${state.error}!');
       }
     });
   }

@@ -82,12 +82,10 @@ class _LoginFormState extends State<LoginForm> {
   void checkLoginState(AuthState state) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (state is AuthSuccess) {
-        Toast.toast(context, '登录成功!',
-            color: Colors.green, duration: const Duration(seconds: 2));
+        Toast.success(context, '登录成功!');
         Get.toNamed(Routes.goodsList);
       } else if (state is AuthFailure) {
-        Toast.toast(context, '登录失败 : ${state.error}!',
-            color: Colors.red, duration: const Duration(seconds: 2));
+        Toast.error(context, '登录失败 : ${state.error}!');
       }
     });
   }
@@ -122,13 +120,11 @@ class _LoginFormState extends State<LoginForm> {
 
   bool _preValidate(String phoneNum, String password) {
     if (phoneNum.isEmpty || password.isEmpty) {
-      Toast.toast(context, stringRes(R.loginEmptyError),
-          color: Colors.orange, duration: const Duration(seconds: 2));
+      Toast.warning(context, stringRes(R.loginEmptyError));
       return false;
     }
     if (!RegExp(r'^[0-9]+$').hasMatch(phoneNum) || phoneNum.length != 11) {
-      Toast.toast(context, stringRes(R.phoneFormatError),
-          color: Colors.orange, duration: const Duration(seconds: 2));
+      Toast.warning(context, stringRes(R.phoneFormatError));
       return false;
     }
     return true;

@@ -79,12 +79,10 @@ class _RegisterFormState extends State<RegisterForm> {
   void checkRegisterState(AuthState state) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (state is AuthSuccess) {
-        Toast.toast(context, '获取成功!',
-            color: Colors.green, duration: const Duration(seconds: 2));
+        Toast.success(context, '获取成功!');
         Get.toNamed(Routes.goodsList, arguments: state.msg);
       } else if (state is AuthFailure) {
-        Toast.toast(context, '获取失败 : ${state.error}!',
-            color: Colors.red, duration: const Duration(seconds: 2));
+        Toast.error(context, '获取失败 : ${state.error}!');
       }
     });
   }
@@ -120,15 +118,13 @@ class _RegisterFormState extends State<RegisterForm> {
 
   bool _preValidate(String phoneNum, String password, String confirmPassword) {
     if (phoneNum.isEmpty || password.isEmpty || confirmPassword.isEmpty) {
-      Toast.toast(context, stringRes(R.registerEmptyError),
-          color: Colors.orange, duration: const Duration(seconds: 2));
+      Toast.warning(context, stringRes(R.registerEmptyError));
       return false;
     }
     if (!RegExp(r'^[0-9]+$').hasMatch(phoneNum) ||
         phoneNum.length != 11 ||
         password != confirmPassword) {
-      Toast.toast(context, stringRes(R.registerFormatError),
-          color: Colors.orange, duration: const Duration(seconds: 2));
+      Toast.warning(context, stringRes(R.registerFormatError));
       return false;
     }
     return true;
