@@ -2,11 +2,11 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:seckill_deal/common/auth/auth.dart';
 import 'package:seckill_deal/common/auth/state.dart';
 import 'package:seckill_deal/common/logger.dart';
 import 'package:seckill_deal/network/login/model/request.dart';
 import 'package:seckill_deal/pages/login/repository/repository.dart';
-import 'package:seckill_deal/utils/auth.dart';
 import 'package:seckill_deal/utils/token_storage.dart';
 
 class LoginProvider extends ChangeNotifier {
@@ -22,9 +22,9 @@ class LoginProvider extends ChangeNotifier {
     try {
       _updateState(AuthLoading());
       final response = await _repository.login(LoginRequest(mobile, password));
-      _updateState(AuthSuccess(response.msg));
       await tokenStorage.set(response.data ?? '');
       await auth.loadAuthToken();
+      _updateState(AuthSuccess(response.msg));
     } catch (e) {
       _handleError(e);
     }

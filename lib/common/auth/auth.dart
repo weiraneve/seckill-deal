@@ -20,7 +20,7 @@ class Auth {
   void logout() {
     authToken = '';
     tokenStorage.delete();
-    Get.toNamed(Routes.login);
+    Get.offAllNamed(Routes.login);
   }
 
   Future<void> loadAuthToken() async {

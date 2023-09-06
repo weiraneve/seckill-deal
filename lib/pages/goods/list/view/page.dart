@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:seckill_deal/common/auth/auth.dart';
 import 'package:seckill_deal/common/auth/state.dart';
 import 'package:seckill_deal/pages/goods/list/provider/provider.dart';
 import 'package:seckill_deal/res/strings.dart';
-import 'package:seckill_deal/utils/auth.dart';
 import 'package:seckill_deal/utils/toast.dart';
 
 class GoodsListPage extends StatefulWidget {
@@ -19,7 +19,6 @@ class _GoodsListPageState extends State<GoodsListPage> {
     return ChangeNotifierProvider(
         create: (context) => GoodsListProvider(),
         child: Consumer<GoodsListProvider>(builder: (context, provider, child) {
-          checkLoginState(provider.state);
           return Scaffold(
             body: Stack(
               children: [
@@ -29,13 +28,7 @@ class _GoodsListPageState extends State<GoodsListPage> {
                   top: 0,
                   bottom: 0,
                   child: Center(
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Provider.of<GoodsListProvider>(context, listen: false)
-                            .goodsList();
-                      },
-                      child: const Text('拉取商品数据'),
-                    ),
+                    child: Text(provider.data ?? 'void'),
                   ),
                 ),
                 Positioned(

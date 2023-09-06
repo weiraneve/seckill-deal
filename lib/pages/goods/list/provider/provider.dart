@@ -7,26 +7,26 @@ import 'package:seckill_deal/common/logger.dart';
 import 'package:seckill_deal/pages/goods/list/repository/repository.dart';
 
 class GoodsListProvider extends ChangeNotifier {
+  String? data = '';
   final GoodsListRepository _repository;
-  AuthState _state = const AuthInitial();
 
   GoodsListProvider({GoodsListRepository? repository})
-      : _repository = repository ?? GoodsListRepository();
+      : _repository = repository ?? GoodsListRepository() {
+    fetchData();
+  }
 
-  AuthState get state => _state;
-
-  Future<void> goodsList() async {
+  Future<void> fetchData() async {
     try {
       _updateState(AuthLoading());
       final response = await _repository.goodsList();
-      _updateState(AuthSuccess(response.data?.first.goods?.goodsName));
+      data = response.data?.first.goods?.goodsName;
+      notifyListeners();
     } catch (e) {
       _handleError(e);
     }
   }
 
   void _updateState(AuthState state) {
-    _state = state;
     notifyListeners();
   }
 
