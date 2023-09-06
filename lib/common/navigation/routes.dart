@@ -1,13 +1,13 @@
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:seckill_deal/common/auth/auth_middleware.dart';
-import 'package:seckill_deal/pages/goods/list/view/page.dart';
+import 'package:seckill_deal/pages/goods/list/view/navigation_page.dart';
 import 'package:seckill_deal/pages/login/view/login_page.dart';
 import 'package:seckill_deal/pages/register/view/register_page.dart';
 
 abstract class Routes {
   static const login = '/login';
   static const register = '/register';
-  static const goodsList = '/goods_list';
+  static const navigation = '/navigation';
 }
 
 abstract class AppPages {
@@ -21,8 +21,8 @@ abstract class AppPages {
       page: () => const RegisterPage(),
     ),
     GetPage(
-      name: Routes.goodsList,
-      page: () => const GoodsListPage(),
+      name: Routes.navigation,
+      page: () => const NavigationPage(),
       middlewares: [AuthMiddleware()],
     ),
   ];
