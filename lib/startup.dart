@@ -7,6 +7,6 @@ import 'network/config.dart';
 
 void startup() async {
   await initConfig(const String.fromEnvironment(environment));
-  runApp(const MyApp());
   await auth.loadAuthToken();
+  runApp(const MyApp());
 }
