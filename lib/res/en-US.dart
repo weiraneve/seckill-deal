@@ -19,4 +19,8 @@ const Map<R, String> enUS = {
   R.serverErrorMessage: 'Server Error',
   R.passwordConfirmHint: 'Confirm Password',
   R.logout: 'Logout',
+  R.inProgress: 'Already started',
+  R.aboutToStart: 'Today is about to start',
+  R.distantFuture: 'The future is about to begin',
+  R.hasEnded: 'Ended',
 };

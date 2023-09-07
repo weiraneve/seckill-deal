@@ -19,4 +19,8 @@ const Map<R, String> zhCN = {
   R.serverErrorMessage: '服务器异常',
   R.passwordConfirmHint: '确定密码',
   R.logout: '注销',
+  R.inProgress: '已经开始',
+  R.aboutToStart: '今日即将开始',
+  R.distantFuture: '未来即将开始',
+  R.hasEnded: '已结束',
 };

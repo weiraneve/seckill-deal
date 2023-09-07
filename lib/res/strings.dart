@@ -47,4 +47,8 @@ enum R {
   serverErrorMessage,
   passwordConfirmHint,
   logout,
+  inProgress,
+  aboutToStart,
+  distantFuture,
+  hasEnded,
 }
