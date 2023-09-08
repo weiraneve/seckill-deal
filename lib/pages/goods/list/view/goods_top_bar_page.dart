@@ -32,7 +32,7 @@ class GoodsTopBarPageState extends State<GoodsTopBarPage> {
         ),
         body: TabBarView(
             children: _tabs
-                .map((Tab tab) => const Center(child: GoodsListPage()))
+                .map((Tab tab) => Center(child: GoodsListPage(tab)))
                 .toList()),
       ),
     );

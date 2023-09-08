@@ -4,10 +4,11 @@ import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:seckill_deal/common/auth/state.dart';
 import 'package:seckill_deal/common/logger.dart';
+import 'package:seckill_deal/network/goods/list/model/goods_vo.dart';
 import 'package:seckill_deal/pages/goods/list/repository/repository.dart';
 
 class GoodsListProvider extends ChangeNotifier {
-  String? data = '';
+  List<GoodsVo>? goodsVos;
   final GoodsListRepository _repository;
 
   GoodsListProvider({GoodsListRepository? repository})
@@ -19,7 +20,7 @@ class GoodsListProvider extends ChangeNotifier {
     try {
       _updateState(AuthLoading());
       final response = await _repository.goodsList();
-      data = response.data?.first.goods?.goodsName;
+      goodsVos = response.data;
       notifyListeners();
     } catch (e) {
       _handleError(e);
