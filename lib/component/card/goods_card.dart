@@ -10,7 +10,7 @@ class GoodsCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-        height: 300,
+        height: 270,
         child: Card(
           color: Colors.white,
           shape: const RoundedRectangleBorder(
