@@ -9,15 +9,15 @@ part of 'response.dart';
 OrderResponse _$OrderResponseFromJson(Map<String, dynamic> json) =>
     OrderResponse(
       json['code'] as int?,
+      json['msg'] as String?,
       (json['data'] as List<dynamic>?)
           ?.map((e) => Order.fromJson(e as Map<String, dynamic>))
           .toList(),
-      json['msg'] as String?,
     );
 
 Map<String, dynamic> _$OrderResponseToJson(OrderResponse instance) =>
     <String, dynamic>{
       'code': instance.code,
-      'data': instance.data,
       'msg': instance.msg,
+      'data': instance.data,
     };

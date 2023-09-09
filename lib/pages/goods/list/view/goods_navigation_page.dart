@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:seckill_deal/component/pure_bottom_bar.dart';
 import 'package:seckill_deal/pages/goods/list/view/goods_top_bar_page.dart';
-import 'package:seckill_deal/pages/order/view/order_page.dart';
+import 'package:seckill_deal/pages/order/view/page.dart';
 
 class GoodsNavigationPage extends StatefulWidget {
   const GoodsNavigationPage({super.key});

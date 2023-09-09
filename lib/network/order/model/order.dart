@@ -4,8 +4,8 @@ part 'order.g.dart';
 
 @JsonSerializable()
 class Order {
-  final String? orderId;
-  final String? goodsId;
+  final int? orderId;
+  final int? goodsId;
   final String? goodsName;
   final String? createdAt;
 

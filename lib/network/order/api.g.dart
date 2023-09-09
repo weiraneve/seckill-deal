@@ -19,14 +19,14 @@ class _OrderApi implements OrderApi {
   String? baseUrl;
 
   @override
-  Future<OrderResponse> order() async {
+  Future<OrderResponse> getOrder() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
     final _result = await _dio
         .fetch<Map<String, dynamic>>(_setStreamType<OrderResponse>(Options(
-      method: 'POST',
+      method: 'GET',
       headers: _headers,
       extra: _extra,
     )

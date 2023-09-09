@@ -6,13 +6,13 @@ part 'response.g.dart';
 @JsonSerializable()
 class OrderResponse {
   final int? code;
-  final List<Order>? data;
   final String? msg;
+  final List<Order>? data;
 
   const OrderResponse(
     this.code,
-    this.data,
     this.msg,
+    this.data,
   );
 
   factory OrderResponse.fromJson(Map<String, dynamic> json) =>

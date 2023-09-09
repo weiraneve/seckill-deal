@@ -11,6 +11,6 @@ part 'api.g.dart';
 abstract class OrderApi {
   factory OrderApi(Dio dio) => _OrderApi(dio, baseUrl: Env[baseUrl]);
 
-  @POST('/mission/order')
-  Future<OrderResponse> order();
+  @GET('/mission/order')
+  Future<OrderResponse> getOrder();
 }
