@@ -83,7 +83,7 @@ class _LoginFormState extends State<LoginForm> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (state is AuthSuccess) {
         Toast.success(context, '登录成功!');
-        Get.offAllNamed(Routes.navigation);
+        Get.offAllNamed(Routes.goodsNavigation);
       } else if (state is AuthFailure) {
         Toast.error(context, '登录失败 : ${state.error}!');
       }

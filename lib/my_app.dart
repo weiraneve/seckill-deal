@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: stringRes(R.appName),
-      initialRoute: Routes.navigation,
+      initialRoute: Routes.goodsNavigation,
       initialBinding: GlobalBinding(),
       getPages: AppPages.pages,
       locale: StringResources.locale,

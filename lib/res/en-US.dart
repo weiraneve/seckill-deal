@@ -24,4 +24,6 @@ const Map<R, String> enUS = {
   R.distantFuture: 'The future is about to begin',
   R.hasEnded: 'Ended',
   R.enterSeckillDetail: 'enter seckill detail',
+  R.seckill: 'instant sale',
+  R.goodsDetail: 'Goods Detail',
 };

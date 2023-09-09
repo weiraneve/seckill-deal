@@ -52,4 +52,6 @@ enum R {
   distantFuture,
   hasEnded,
   enterSeckillDetail,
+  seckill,
+  goodsDetail,
 }

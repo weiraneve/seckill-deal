@@ -80,7 +80,7 @@ class _RegisterFormState extends State<RegisterForm> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (state is AuthSuccess) {
         Toast.success(context, '获取成功!');
-        Get.toNamed(Routes.navigation, arguments: state.msg);
+        Get.toNamed(Routes.goodsNavigation, arguments: state.msg);
       } else if (state is AuthFailure) {
         Toast.error(context, '获取失败 : ${state.error}!');
       }

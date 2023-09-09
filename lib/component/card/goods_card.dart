@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:seckill_deal/common/navigation/routes.dart';
 import 'package:seckill_deal/network/goods/list/model/goods_vo.dart';
 import 'package:seckill_deal/res/strings.dart';
 
@@ -33,11 +35,16 @@ class GoodsCard extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Text(goodsVo?.goods?.goodsTitle ?? ''),
-                        Text((goodsVo?.goods?.goodsPrice ?? 0).toString()),
+                        Text('¥${goodsVo?.goods?.goodsPrice ?? 0}'),
                       ],
                     ),
                     trailing: ElevatedButton(
-                      onPressed: _isButtonEnabled ? () {} : null,
+                      onPressed: _isButtonEnabled
+                          ? () {
+                              Get.toNamed(Routes.goodsDetail,
+                                  arguments: goodsVo);
+                            }
+                          : null,
                       child: Text(stringRes(R.enterSeckillDetail)),
                     ),
                   ),

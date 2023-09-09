@@ -24,4 +24,6 @@ const Map<R, String> zhCN = {
   R.distantFuture: '未来即将开始',
   R.hasEnded: '已结束',
   R.enterSeckillDetail: '进入秒杀详情',
+  R.seckill: '立即秒杀',
+  R.goodsDetail: '商品详情',
 };
