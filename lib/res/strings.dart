@@ -51,4 +51,5 @@ enum R {
   aboutToStart,
   distantFuture,
   hasEnded,
+  enterSeckillDetail,
 }
