@@ -26,4 +26,5 @@ const Map<R, String> enUS = {
   R.enterSeckillDetail: 'enter seckill detail',
   R.seckill: 'instant sale',
   R.goodsDetail: 'Goods Detail',
+  R.orderPageTitle: 'Order Page',
 };

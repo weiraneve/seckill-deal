@@ -54,4 +54,5 @@ enum R {
   enterSeckillDetail,
   seckill,
   goodsDetail,
+  orderPageTitle,
 }

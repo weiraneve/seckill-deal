@@ -26,4 +26,5 @@ const Map<R, String> zhCN = {
   R.enterSeckillDetail: '进入秒杀详情',
   R.seckill: '立即秒杀',
   R.goodsDetail: '商品详情',
+  R.orderPageTitle: '订单详情',
 };

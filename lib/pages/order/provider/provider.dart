@@ -11,12 +11,15 @@ class OrderProvider extends ChangeNotifier {
   final OrderRepository _repository;
 
   OrderProvider({OrderRepository? repository})
-      : _repository = repository ?? OrderRepository();
+      : _repository = repository ?? OrderRepository() {
+    getOrder();
+  }
 
   Future<void> getOrder() async {
     try {
       final response = await _repository.getOrder();
       orders = response.data ?? [];
+      notifyListeners();
     } catch (e) {
       _handleError(e);
     }
