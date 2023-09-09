@@ -22,7 +22,7 @@ class _GoodsListPageState extends State<GoodsListPage> {
             body: ListView(
               children:
                   provider.getGoodsVosList(widget.tab.text).map((goodsVo) {
-                return GoodsCard(goodsVo: goodsVo);
+                return GoodsCard(goodsVo: goodsVo, tabText: widget.tab.text);
               }).toList(),
             ),
           );

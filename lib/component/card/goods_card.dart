@@ -4,8 +4,11 @@ import 'package:seckill_deal/res/strings.dart';
 
 class GoodsCard extends StatelessWidget {
   final GoodsVo? goodsVo;
+  final String? tabText;
 
-  const GoodsCard({super.key, required this.goodsVo});
+  bool get _isButtonEnabled => tabText == stringRes(R.inProgress);
+
+  const GoodsCard({super.key, required this.goodsVo, required this.tabText});
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +37,7 @@ class GoodsCard extends StatelessWidget {
                       ],
                     ),
                     trailing: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: _isButtonEnabled ? () {} : null,
                       child: Text(stringRes(R.enterSeckillDetail)),
                     ),
                   ),
