@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
+import 'package:seckill_deal/common/logger.dart';
 import 'package:seckill_deal/network/goods/list/model/goods_vo.dart';
 import 'package:seckill_deal/pages/goods/detail/provider/provider.dart';
 import 'package:seckill_deal/res/strings.dart';
 import 'package:seckill_deal/utils/date_util.dart';
+import 'package:seckill_deal/utils/toast.dart';
 
 class GoodsDetailPage extends StatefulWidget {
   const GoodsDetailPage({super.key});
@@ -25,7 +27,7 @@ class _GoodsDetailPageState extends State<GoodsDetailPage> {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => GoodsDetailProvider(goodsVo),
+      create: (context) => GoodsDetailProvider(goodsVo: goodsVo),
       child: Consumer<GoodsDetailProvider>(
         builder: (context, provider, child) {
           var goods = provider.goodsVo.goods;
@@ -73,7 +75,17 @@ class _GoodsDetailPageState extends State<GoodsDetailPage> {
                           Text("库存: ${goods?.goodsStock ?? 0}"),
                           const SizedBox(height: 16),
                           ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () async {
+                              bool isSuccess = false;
+                              try {
+                                isSuccess =
+                                    await provider.seckill(goods?.id ?? 0);
+                              } catch (e) {
+                                logger.e(e);
+                              } finally {
+                                checkSeckillResult(isSuccess);
+                              }
+                            },
                             child: Text(stringRes(R.seckill)),
                           ),
                         ],
@@ -87,5 +99,15 @@ class _GoodsDetailPageState extends State<GoodsDetailPage> {
         },
       ),
     );
+  }
+
+  void checkSeckillResult(bool isSuccess) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (isSuccess) {
+        Toast.success(context, '恭喜你，秒杀成功!');
+      } else {
+        Toast.error(context, '对不起，秒杀失败。');
+      }
+    });
   }
 }
