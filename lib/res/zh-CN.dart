@@ -33,4 +33,6 @@ const Map<R, String> zhCN = {
   R.confirmPassword: '确认新密码',
   R.cancel: '取消',
   R.summit: '发送',
+  R.updateSuccess: '修改密码成功',
+  R.updateError: '修改密码失败',
 };

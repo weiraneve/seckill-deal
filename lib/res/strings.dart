@@ -61,4 +61,6 @@ enum R {
   confirmPassword,
   cancel,
   summit,
+  updateSuccess,
+  updateError,
 }

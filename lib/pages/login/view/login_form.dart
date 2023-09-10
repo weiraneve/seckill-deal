@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:seckill_deal/common/auth/state.dart';
 import 'package:seckill_deal/common/navigation/routes.dart';
-import 'package:seckill_deal/pages/login/provider/provider.dart';
+import 'package:seckill_deal/pages/login/provider/login_provider.dart';
 
 import '../../../component/input/icon_input.dart';
 import '../../../res/strings.dart';

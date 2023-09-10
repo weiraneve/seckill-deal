@@ -36,4 +36,6 @@ const Map<R, String> enUS = {
   R.confirmPassword: 'confirm password',
   R.cancel: 'cancel',
   R.summit: 'summit',
+  R.updateSuccess: 'update password success',
+  R.updateError: 'update password error',
 };
