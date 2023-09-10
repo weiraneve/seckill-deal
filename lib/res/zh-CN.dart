@@ -27,4 +27,10 @@ const Map<R, String> zhCN = {
   R.seckill: '立即秒杀',
   R.goodsDetail: '商品详情',
   R.orderPageTitle: '订单详情',
+  R.updatePassword: '更改密码',
+  R.oldPassword: '旧密码',
+  R.newPassword: '新密码',
+  R.confirmPassword: '确认新密码',
+  R.cancel: '取消',
+  R.summit: '发送',
 };

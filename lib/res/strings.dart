@@ -55,4 +55,10 @@ enum R {
   seckill,
   goodsDetail,
   orderPageTitle,
+  updatePassword,
+  oldPassword,
+  newPassword,
+  confirmPassword,
+  cancel,
+  summit,
 }

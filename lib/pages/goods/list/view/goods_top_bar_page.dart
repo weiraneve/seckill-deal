@@ -23,11 +23,11 @@ class GoodsTopBarPageState extends State<GoodsTopBarPage> {
       length: _tabs.length,
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.blue,
+          backgroundColor: Colors.white,
           title: TabBar(
             tabs: _tabs,
             isScrollable: true,
-            labelColor: Colors.white,
+            labelColor: Colors.blue,
           ),
         ),
         body: TabBarView(

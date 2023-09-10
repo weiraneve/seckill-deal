@@ -29,7 +29,7 @@ abstract class AppPages {
     ),
     GetPage(
       name: Routes.goodsDetail,
-      page: () => GoodsDetailPage(),
+      page: () => const GoodsDetailPage(),
     ),
   ];
 }

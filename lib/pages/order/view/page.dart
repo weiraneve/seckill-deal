@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:seckill_deal/pages/order/provider/provider.dart';
-import 'package:seckill_deal/res/strings.dart';
 import 'package:seckill_deal/utils/date_util.dart';
 
 class OrderPage extends StatelessWidget {
@@ -10,9 +9,6 @@ class OrderPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(stringRes(R.orderPageTitle)),
-      ),
       body: ChangeNotifierProvider(
         create: (context) => OrderProvider(),
         child: Consumer<OrderProvider>(
