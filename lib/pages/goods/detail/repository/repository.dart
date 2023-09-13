@@ -3,7 +3,7 @@ import 'package:get/get_instance/get_instance.dart';
 import 'package:seckill_deal/network/client.dart';
 import 'package:seckill_deal/network/goods/detail/api.dart';
 import 'package:seckill_deal/network/goods/detail/model/goods_detail.dart';
-import 'package:seckill_deal/network/goods/detail/model/result.dart';
+import 'package:seckill_deal/network/result.dart';
 
 class GoodsDetailRepository {
   final GoodsDetailApi _api;

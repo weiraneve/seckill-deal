@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:seckill_deal/network/goods/detail/model/goods_detail.dart';
-import 'package:seckill_deal/network/goods/detail/model/result.dart';
+import 'package:seckill_deal/network/result.dart';
 import 'package:seckill_deal/network/goods/list/model/goods.dart';
 import 'package:seckill_deal/pages/goods/detail/repository/repository.dart';
 
