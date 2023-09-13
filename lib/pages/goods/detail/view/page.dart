@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:seckill_deal/common/logger.dart';
-import 'package:seckill_deal/network/goods/list/model/goods_vo.dart';
 import 'package:seckill_deal/pages/goods/detail/provider/provider.dart';
 import 'package:seckill_deal/res/strings.dart';
 import 'package:seckill_deal/utils/date_util.dart';
@@ -16,21 +15,13 @@ class GoodsDetailPage extends StatefulWidget {
 }
 
 class _GoodsDetailPageState extends State<GoodsDetailPage> {
-  late final GoodsVo goodsVo;
-
-  @override
-  void initState() {
-    super.initState();
-    goodsVo = Get.arguments as GoodsVo;
-  }
-
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => GoodsDetailProvider(goodsVo: goodsVo),
+      create: (context) => GoodsDetailProvider(Get.arguments),
       child: Consumer<GoodsDetailProvider>(
         builder: (context, provider, child) {
-          var goods = provider.goodsVo.goods;
+          var goods = provider.goods;
           return Scaffold(
             appBar: AppBar(
               title: Text(stringRes(R.goodsDetail)),
@@ -72,7 +63,7 @@ class _GoodsDetailPageState extends State<GoodsDetailPage> {
                           const SizedBox(height: 8),
                           Text("结束时间: ${formatDateTime(goods?.endTime ?? '')}"),
                           const SizedBox(height: 8),
-                          Text("库存: ${goods?.goodsStock ?? 0}"),
+                          Text("库存: ${provider.stockCount ?? 0}"),
                           const SizedBox(height: 16),
                           ElevatedButton(
                             onPressed: () async {

@@ -93,6 +93,40 @@ class _GoodsDetailApi implements GoodsDetailApi {
     return value;
   }
 
+  @override
+  Future<Result<GoodsDetail>> getDetail(int goodsId) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final Map<String, dynamic>? _data = null;
+
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+      _setStreamType<Result<GoodsDetail>>(
+        Options(
+          method: 'GET',
+          headers: _headers,
+          extra: _extra,
+        )
+            .compose(
+              _dio.options,
+              '/mission/goods/getDetail/${goodsId}',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl),
+      ),
+    );
+
+    final Map<String, dynamic> responseData = _result.data!;
+    final value = Result<GoodsDetail>(
+      code: responseData['code'],
+      msg: responseData['msg'],
+      data: GoodsDetail.fromJson(responseData['data']),
+    );
+
+    return value;
+  }
+
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {
     if (T != dynamic &&
         !(requestOptions.responseType == ResponseType.bytes ||

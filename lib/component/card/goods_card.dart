@@ -42,7 +42,7 @@ class GoodsCard extends StatelessWidget {
                       onPressed: _isButtonEnabled
                           ? () {
                               Get.toNamed(Routes.goodsDetail,
-                                  arguments: goodsVo);
+                                  arguments: goodsVo?.goods?.id);
                             }
                           : null,
                       child: Text(stringRes(R.enterSeckillDetail)),
