@@ -11,26 +11,26 @@
 
 - 登录页面
 
-<img src="./docs/images/login.png" alt="用户登陆界面" width="20%" />
+<img src="./docs/images/login.png" alt="用户登陆界面" width="30%" />
 
 - 注册界面
 
-<img src="./docs/images/register.png" alt="用户登陆界面" width="20%" />
+<img src="./docs/images/register.png" alt="用户登陆界面" width="30%" />
 
 - 商品列表界面
 
-<img src="./docs/images/goods_list.png" alt="商品列表界面" width="20%" />
+<img src="./docs/images/goods_list.png" alt="商品列表界面" width="30%" />
 
 
-<img src="./docs/images/goods_list_no.png" alt="商品列表界面" width="20%" />
+<img src="./docs/images/goods_list_no.png" alt="商品列表界面" width="30%" />
 
 - 商品详情界面
 
-<img src="./docs/images/order.png" alt="商品详情界面" width="20%" />
+<img src="./docs/images/order.png" alt="商品详情界面" width="30%" />
 
 - 修改密码界面
 
-<img src="./docs/images/update_password.png" alt="修改密码界面" width="20%" />
+<img src="./docs/images/update_password.png" alt="修改密码界面" width="30%" />
 
 ## 技术栈
 包括但不仅限于:
