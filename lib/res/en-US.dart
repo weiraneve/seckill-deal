@@ -38,4 +38,6 @@ const Map<R, String> enUS = {
   R.summit: 'summit',
   R.updateSuccess: 'update password success',
   R.updateError: 'update password error',
+  R.networkError: 'network error',
+  R.unknownError: 'unknown error',
 };

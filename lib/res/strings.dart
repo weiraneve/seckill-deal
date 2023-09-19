@@ -63,4 +63,6 @@ enum R {
   summit,
   updateSuccess,
   updateError,
+  networkError,
+  unknownError,
 }
