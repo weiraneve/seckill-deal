@@ -6,7 +6,7 @@ import 'package:seckill_deal/pages/goods/list/view/goods_top_bar_page.dart';
 import 'package:seckill_deal/pages/login/provider/update_password_provider.dart';
 import 'package:seckill_deal/pages/order/view/page.dart';
 import 'package:seckill_deal/res/strings.dart';
-import 'package:seckill_deal/utils/toast.dart';
+import 'package:seckill_deal/common/utils/toast.dart';
 
 class GoodsNavigationPage extends StatefulWidget {
   const GoodsNavigationPage({super.key});

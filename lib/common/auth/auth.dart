@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 import 'package:seckill_deal/common/navigation/routes.dart';
-import 'package:seckill_deal/utils/token_storage.dart';
+import 'package:seckill_deal/common/utils/token_storage.dart';
 
 class Auth {
   Auth._internal();

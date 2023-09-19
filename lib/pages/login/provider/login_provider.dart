@@ -7,7 +7,7 @@ import 'package:seckill_deal/common/auth/state.dart';
 import 'package:seckill_deal/common/logger.dart';
 import 'package:seckill_deal/network/login/model/request.dart';
 import 'package:seckill_deal/pages/login/repository/login_repository.dart';
-import 'package:seckill_deal/utils/token_storage.dart';
+import 'package:seckill_deal/common/utils/token_storage.dart';
 
 class LoginProvider extends ChangeNotifier {
   final LoginRepository _repository;

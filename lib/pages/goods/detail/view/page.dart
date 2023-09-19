@@ -4,8 +4,8 @@ import 'package:provider/provider.dart';
 import 'package:seckill_deal/common/logger.dart';
 import 'package:seckill_deal/pages/goods/detail/provider/provider.dart';
 import 'package:seckill_deal/res/strings.dart';
-import 'package:seckill_deal/utils/date_util.dart';
-import 'package:seckill_deal/utils/toast.dart';
+import 'package:seckill_deal/common/utils/date_util.dart';
+import 'package:seckill_deal/common/utils/toast.dart';
 
 class GoodsDetailPage extends StatefulWidget {
   const GoodsDetailPage({super.key});

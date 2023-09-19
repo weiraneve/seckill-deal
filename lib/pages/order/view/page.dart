@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:seckill_deal/pages/order/provider/provider.dart';
-import 'package:seckill_deal/utils/date_util.dart';
+import 'package:seckill_deal/common/utils/date_util.dart';
 
 class OrderPage extends StatelessWidget {
   const OrderPage({super.key});

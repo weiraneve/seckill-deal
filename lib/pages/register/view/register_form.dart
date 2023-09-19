@@ -6,7 +6,7 @@ import 'package:seckill_deal/common/navigation/routes.dart';
 import 'package:seckill_deal/component/input/icon_input.dart';
 import 'package:seckill_deal/pages/register/provider/provider.dart';
 import 'package:seckill_deal/res/strings.dart';
-import 'package:seckill_deal/utils/toast.dart';
+import 'package:seckill_deal/common/utils/toast.dart';
 
 
 class RegisterForm extends StatefulWidget {
