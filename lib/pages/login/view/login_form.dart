@@ -91,7 +91,8 @@ class _LoginFormState extends State<LoginForm> {
 
   Future<void> _doLogin() async {
     if (_preValidate(_phoneNumController.text, _passwordController.text)) {
-      Provider.of<LoginProvider>(context, listen: false)
+      context
+          .read<LoginProvider>()
           .login(_phoneNumController.text, _passwordController.text);
     }
   }

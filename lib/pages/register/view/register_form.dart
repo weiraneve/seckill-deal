@@ -3,11 +3,10 @@ import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:seckill_deal/common/auth/state.dart';
 import 'package:seckill_deal/common/navigation/routes.dart';
+import 'package:seckill_deal/common/utils/toast.dart';
 import 'package:seckill_deal/component/input/icon_input.dart';
 import 'package:seckill_deal/pages/register/provider/provider.dart';
 import 'package:seckill_deal/res/strings.dart';
-import 'package:seckill_deal/common/utils/toast.dart';
-
 
 class RegisterForm extends StatefulWidget {
   const RegisterForm({super.key});
@@ -90,7 +89,8 @@ class _RegisterFormState extends State<RegisterForm> {
   void _doRegister() {
     if (_preValidate(_phoneNumController.text, _passwordController.text,
         _passwordConfirmController.text)) {
-      Provider.of<RegisterProvider>(context, listen: false)
+      context
+          .read<RegisterProvider>()
           .register(_phoneNumController.text, _passwordController.text);
     }
   }
