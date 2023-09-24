@@ -65,4 +65,6 @@ enum R {
   updateError,
   networkError,
   unknownError,
+  successful,
+  fail,
 }

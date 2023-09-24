@@ -37,4 +37,6 @@ const Map<R, String> zhCN = {
   R.updateError: '修改密码失败',
   R.networkError: '网络错误',
   R.unknownError: '未知错误',
+  R.successful: '成功',
+  R.fail: '失败',
 };

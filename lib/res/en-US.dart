@@ -40,4 +40,6 @@ const Map<R, String> enUS = {
   R.updateError: 'update password error',
   R.networkError: 'network error',
   R.unknownError: 'unknown error',
+  R.successful: 'successful',
+  R.fail: 'fail',
 };

@@ -88,9 +88,9 @@ class _GoodsDetailPageBody extends StatelessWidget {
   void _checkSeckillState(BuildContext context, AuthState state) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (state is AuthSuccess) {
-        Toast.success(context, '秒杀成功!');
+        Toast.success(context, stringRes(R.successful));
       } else if (state is AuthFailure) {
-        Toast.error(context, '秒杀失败 : ${state.error}!');
+        Toast.error(context, '${stringRes(R.fail)}: ${state.error}!');
       }
     });
   }
