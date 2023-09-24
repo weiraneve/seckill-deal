@@ -33,12 +33,14 @@ class _GoodsDetailPageBody extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: ListView(
           children: [
-            Image.network(
-              goods?.goodsImg ?? '',
-              height: 200,
-              width: double.infinity,
-              fit: BoxFit.cover,
-            ),
+            (goods?.goodsImg?.isEmpty ?? true)
+                ? const SizedBox.shrink()
+                : Image.network(
+                    goods?.goodsImg ?? '',
+                    height: 200,
+                    width: double.infinity,
+                    fit: BoxFit.cover,
+                  ),
             const SizedBox(height: 20),
             Card(
               elevation: 4,
