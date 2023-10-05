@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:seckill_deal/common/utils/network_util.dart';
+import 'package:seckill_deal/common/logger.dart';
 import 'package:seckill_deal/network/order/model/order.dart';
 import 'package:seckill_deal/pages/Order/repository/repository.dart';
 
@@ -13,12 +13,12 @@ class OrderProvider extends ChangeNotifier {
   }
 
   Future<void> getOrder() async {
-    try {
-      final response = await _repository.getOrder();
+    final response = await _repository.getOrder();
+    if (response.code == 200) {
       orders = response.data ?? [];
       notifyListeners();
-    } catch (e) {
-      NetworkUtil.handleError(e);
+    } else {
+      logger.e(response.data);
     }
   }
 }

@@ -18,7 +18,7 @@ class GoodsDetailRepository {
 
   Future<bool> seckill(int goodsId) async {
     Result<String> pathResult = await _api.getPath(goodsId);
-    Result<int> seckillResult = await _api.seckill(goodsId, pathResult.data);
+    Result seckillResult = await _api.seckill(goodsId, pathResult.data);
     if (seckillResult.data != 0) {
       return false;
     }

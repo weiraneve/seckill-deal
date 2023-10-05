@@ -16,7 +16,7 @@ abstract class GoodsDetailApi {
   Future<Result<String>> getPath(@Query("goodsId") int goodsId);
 
   @GET('/mission/seckill')
-  Future<Result<int>> seckill(
+  Future<Result> seckill(
       @Query("goodsId") int goodsId, @Query("path") String path);
 
   @GET('/mission/seckill/result')

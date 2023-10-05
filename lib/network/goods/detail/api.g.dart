@@ -42,7 +42,7 @@ class _GoodsDetailApi implements GoodsDetailApi {
   }
 
   @override
-  Future<Result<int>> seckill(
+  Future<Result<dynamic>> seckill(
     int goodsId,
     String path,
   ) async {
@@ -54,7 +54,7 @@ class _GoodsDetailApi implements GoodsDetailApi {
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
     final _result = await _dio
-        .fetch<Map<String, dynamic>>(_setStreamType<Result<int>>(Options(
+        .fetch<Map<String, dynamic>>(_setStreamType<Result<dynamic>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -66,7 +66,7 @@ class _GoodsDetailApi implements GoodsDetailApi {
               data: _data,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = Result<int>.fromJson(_result.data!);
+    final value = Result<dynamic>.fromJson(_result.data!);
     return value;
   }
 

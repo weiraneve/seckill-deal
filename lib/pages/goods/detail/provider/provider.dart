@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:seckill_deal/common/auth/state.dart';
-import 'package:seckill_deal/common/utils/network_util.dart';
 import 'package:seckill_deal/network/goods/detail/model/goods_detail.dart';
 import 'package:seckill_deal/network/goods/list/model/goods.dart';
 import 'package:seckill_deal/network/result.dart';
@@ -30,13 +29,11 @@ class GoodsDetailProvider extends ChangeNotifier {
   }
 
   Future<void> seckill(int goodsId) async {
-    try {
-      _updateState(AuthLoading());
-      if (await _repository.seckill(goodsId)) {
-        _updateState(AuthSuccess(stringRes(R.successful)));
-      }
-    } catch (e) {
-      _updateState(AuthFailure(error: NetworkUtil.handleErrorMessage(e)));
+    _updateState(AuthLoading());
+    if (await _repository.seckill(goodsId)) {
+      _updateState(AuthSuccess(stringRes(R.successful)));
+    } else {
+      _updateState(AuthFailure(error: stringRes(R.fail)));
     }
   }
 

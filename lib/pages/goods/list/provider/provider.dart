@@ -18,13 +18,13 @@ class GoodsListProvider extends ChangeNotifier {
   }
 
   Future<void> fetchData() async {
-    try {
-      final response = await _repository.goodsList();
+    final response = await _repository.goodsList();
+    if (response.code == 200) {
       _goodsVos = response.data ?? [];
       _filterGoodsVos();
       notifyListeners();
-    } catch (e) {
-      logger.e(e);
+    } else {
+      logger.e(response.data);
     }
   }
 

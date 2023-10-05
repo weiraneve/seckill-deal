@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:seckill_deal/common/auth/state.dart';
-import 'package:seckill_deal/common/utils/network_util.dart';
 import 'package:seckill_deal/network/register/model/request.dart';
 import 'package:seckill_deal/pages/register/repository/repository.dart';
 
@@ -14,13 +13,13 @@ class RegisterProvider extends ChangeNotifier {
   AuthState get state => _state;
 
   Future<void> register(String mobile, String password) async {
-    try {
-      _updateState(AuthLoading());
-      final response =
-          await _repository.register(RegisterRequest(mobile, password));
+    _updateState(AuthLoading());
+    final response =
+        await _repository.register(RegisterRequest(mobile, password));
+    if (response.code == 200) {
       _updateState(AuthSuccess(response.msg));
-    } catch (e) {
-      _updateState(AuthFailure(error: NetworkUtil.handleErrorMessage(e)));
+    } else {
+      _updateState(AuthFailure(error: response.data));
     }
   }
 
