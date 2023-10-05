@@ -30,10 +30,11 @@ class GoodsDetailProvider extends ChangeNotifier {
 
   Future<void> seckill(int goodsId) async {
     _updateState(AuthLoading());
-    if (await _repository.seckill(goodsId)) {
+    String seckillResult = await _repository.seckill(goodsId);
+    if (seckillResult == GoodsDetailRepository.success) {
       _updateState(AuthSuccess(stringRes(R.successful)));
     } else {
-      _updateState(AuthFailure(error: stringRes(R.fail)));
+      _updateState(AuthFailure(error: seckillResult));
     }
   }
 
