@@ -109,6 +109,7 @@ class _GoodsNavigationPageState extends State<GoodsNavigationPage> {
                               provider.updatePassword();
                               checkUpdatePasswordState(provider.isSuccess);
                               Navigator.pop(context);
+                              Navigator.pop(context);
                             },
                             child: Text(stringRes(R.summit)),
                           ),
