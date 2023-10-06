@@ -19,7 +19,7 @@ class RegisterProvider extends ChangeNotifier {
     if (response.code == 200) {
       _updateState(AuthSuccess(response.msg));
     } else {
-      _updateState(AuthFailure(error: response.data));
+      _updateState(AuthFailure(error: response.msg));
     }
   }
 

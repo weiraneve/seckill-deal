@@ -3,6 +3,7 @@ import 'package:retrofit/retrofit.dart';
 import 'package:seckill_deal/common/constants.dart';
 import 'package:seckill_deal/network/login/model/response.dart';
 import 'package:seckill_deal/network/login/model/update_password_request.dart';
+import 'package:seckill_deal/network/result.dart';
 
 import '../config.dart';
 import 'model/request.dart';
@@ -17,5 +18,5 @@ abstract class LoginApi {
   Future<LoginResponse> login(@Body() LoginRequest request);
 
   @POST('/uaa/user/updatePass')
-  Future<void> updatePassword(@Body() UpdatePasswordRequest request);
+  Future<Result> updatePassword(@Body() UpdatePasswordRequest request);
 }

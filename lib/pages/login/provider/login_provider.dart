@@ -22,7 +22,7 @@ class LoginProvider extends ChangeNotifier {
       await auth.loadAuthToken();
       _updateState(AuthSuccess(response.msg));
     } else {
-      _updateState(AuthFailure(error: response.data));
+      _updateState(AuthFailure(error: response.msg));
     }
   }
 
