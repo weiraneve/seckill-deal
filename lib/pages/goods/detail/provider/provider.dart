@@ -33,9 +33,15 @@ class GoodsDetailProvider extends ChangeNotifier {
     String seckillResult = await _repository.seckill(goodsId);
     if (seckillResult == GoodsDetailRepository.success) {
       _updateState(AuthSuccess(stringRes(R.successful)));
+      refreshGoodsDetail(goodsId);
     } else {
       _updateState(AuthFailure(error: seckillResult));
     }
+  }
+
+  void refreshGoodsDetail(int goodsId) {
+    _getDetail(goodsId);
+    notifyListeners();
   }
 
   void _updateState(AuthState state) {
