@@ -67,4 +67,5 @@ enum R {
   unknownError,
   successful,
   fail,
+  mismatchError,
 }

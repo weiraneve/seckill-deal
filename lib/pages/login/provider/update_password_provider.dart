@@ -3,6 +3,7 @@ import 'package:seckill_deal/common/auth/state.dart';
 import 'package:seckill_deal/network/login/model/update_password_request.dart';
 import 'package:seckill_deal/network/result.dart';
 import 'package:seckill_deal/pages/login/repository/update_password_repository.dart';
+import 'package:seckill_deal/res/strings.dart';
 
 import '../../../common/logger.dart';
 
@@ -17,7 +18,6 @@ class UpdatePasswordProvider with ChangeNotifier {
   String _oldPassword = '';
   String _newPassword = '';
   String _confirmNewPassword = '';
-  bool isSuccess = false;
 
   String get oldPassword => _oldPassword;
 
@@ -42,19 +42,16 @@ class UpdatePasswordProvider with ChangeNotifier {
 
   Future<void> updatePassword() async {
     if (_newPassword != confirmNewPassword) {
-      isSuccess = false;
-      notifyListeners();
+      _updateState(AuthFailure(error: stringRes(R.mismatchError)));
       return;
     }
     try {
-      Result result = await _repository
+      Result response = await _repository
           .updatePassword(UpdatePasswordRequest(_oldPassword, _newPassword));
-      if (result.code == 200) {
-        isSuccess = true;
-        notifyListeners();
+      if (response.code == 200) {
+        _updateState(AuthSuccess(''));
       } else {
-        isSuccess = false;
-        notifyListeners();
+        _updateState(AuthFailure(error: response.msg));
       }
     } catch (e) {
       logger.e(e);

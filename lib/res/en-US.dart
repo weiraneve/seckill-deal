@@ -42,4 +42,5 @@ const Map<R, String> enUS = {
   R.unknownError: 'unknown error',
   R.successful: 'successful',
   R.fail: 'fail',
+  R.mismatchError: 'mismatch error',
 };
