@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:seckill_deal/common/auth/state.dart';
 import 'package:seckill_deal/common/utils/date_util.dart';
 import 'package:seckill_deal/common/utils/toast.dart';
-import 'package:seckill_deal/pages/goods/detail/provider/provider.dart';
+import 'package:seckill_deal/pages/goods/detail/view_model/goods_detail_view_model.dart';
 import 'package:seckill_deal/res/strings.dart';
 
 class GoodsDetailPage extends StatelessWidget {
@@ -13,7 +13,7 @@ class GoodsDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => GoodsDetailProvider(Get.arguments),
+      create: (context) => GoodsDetailViewModel(Get.arguments),
       child: _GoodsDetailPageBody(),
     );
   }
@@ -22,9 +22,9 @@ class GoodsDetailPage extends StatelessWidget {
 class _GoodsDetailPageBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var provider = context.watch<GoodsDetailProvider>();
-    _checkSeckillState(context, provider.state);
-    var goods = provider.goods;
+    var viewModel = context.watch<GoodsDetailViewModel>();
+    _checkSeckillState(context, viewModel.state);
+    var goods = viewModel.goods;
     return Scaffold(
       appBar: AppBar(
         title: Text(stringRes(R.goodsDetail)),
@@ -67,7 +67,7 @@ class _GoodsDetailPageBody extends StatelessWidget {
                     const SizedBox(height: 8),
                     Text("结束时间: ${formatDateTime(goods?.endTime ?? '')}"),
                     const SizedBox(height: 8),
-                    Text("库存: ${provider.stockCount ?? 0}"),
+                    Text("库存: ${viewModel.stockCount ?? 0}"),
                     const SizedBox(height: 16),
                     ElevatedButton(
                       onPressed: () => _seckill(context, goods?.id ?? 0),
@@ -84,7 +84,7 @@ class _GoodsDetailPageBody extends StatelessWidget {
   }
 
   void _seckill(BuildContext context, int goodsId) {
-    context.read<GoodsDetailProvider>().seckill(goodsId);
+    context.read<GoodsDetailViewModel>().seckill(goodsId);
   }
 
   void _checkSeckillState(BuildContext context, AuthState state) {

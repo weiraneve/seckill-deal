@@ -1,13 +1,13 @@
-import 'package:flutter/cupertino.dart';
 import 'package:seckill_deal/common/log/logger.dart';
+import 'package:seckill_deal/common/view_model/base_view_model.dart';
 import 'package:seckill_deal/network/order/model/order.dart';
 import 'package:seckill_deal/pages/Order/repository/repository.dart';
 
-class OrderProvider extends ChangeNotifier {
+class OrderViewModel extends BaseViewModel {
   List<Order> orders = [];
   final OrderRepository _repository;
 
-  OrderProvider({OrderRepository? repository})
+  OrderViewModel({OrderRepository? repository})
       : _repository = repository ?? OrderRepository() {
     getOrder();
   }

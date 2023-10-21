@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:seckill_deal/pages/order/provider/provider.dart';
 import 'package:seckill_deal/common/utils/date_util.dart';
+import 'package:seckill_deal/pages/order/view_model/order_view_model.dart';
 
 class OrderPage extends StatelessWidget {
   const OrderPage({super.key});
@@ -10,11 +10,11 @@ class OrderPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ChangeNotifierProvider(
-        create: (context) => OrderProvider(),
-        child: Consumer<OrderProvider>(
-          builder: (context, provider, child) {
+        create: (context) => OrderViewModel(),
+        child: Consumer<OrderViewModel>(
+          builder: (context, viewModel, child) {
             return ListView(
-              children: provider.orders.map((order) {
+              children: viewModel.orders.map((order) {
                 return Card(
                   color: Colors.white,
                   shape: const RoundedRectangleBorder(

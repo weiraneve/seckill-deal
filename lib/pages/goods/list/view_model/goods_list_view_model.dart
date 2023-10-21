@@ -1,10 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:seckill_deal/common/log/logger.dart';
+import 'package:seckill_deal/common/view_model/base_view_model.dart';
 import 'package:seckill_deal/network/goods/list/model/goods_vo.dart';
 import 'package:seckill_deal/pages/goods/list/repository/repository.dart';
 import 'package:seckill_deal/res/strings.dart';
 
-class GoodsListProvider extends ChangeNotifier {
+class GoodsListViewModel extends BaseViewModel {
   List<GoodsVo> _goodsVos = [];
   final List<GoodsVo> _inProgressGoodsVos = [];
   final List<GoodsVo> _aboutToStartGoodsVos = [];
@@ -12,7 +12,7 @@ class GoodsListProvider extends ChangeNotifier {
   final List<GoodsVo> _endedGoodsVos = [];
   final GoodsListRepository _repository;
 
-  GoodsListProvider({GoodsListRepository? repository})
+  GoodsListViewModel({GoodsListRepository? repository})
       : _repository = repository ?? GoodsListRepository();
 
   Future<void> fetchData() async {

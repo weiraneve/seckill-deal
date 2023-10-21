@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:seckill_deal/component/background/arch_background.dart';
-import 'package:seckill_deal/pages/login/provider/login_provider.dart';
+import 'package:seckill_deal/pages/login/view_model/login_view_model.dart';
 import 'package:seckill_deal/pages/login/view/login_form.dart';
 
 class LoginPage extends StatelessWidget {
@@ -12,7 +12,7 @@ class LoginPage extends StatelessWidget {
     Size winSize = MediaQuery.of(context).size;
 
     return ChangeNotifierProvider(
-      create: (context) => LoginProvider(),
+      create: (context) => LoginViewModel(),
       child: Scaffold(
           body: SingleChildScrollView(
         child: Wrap(children: [

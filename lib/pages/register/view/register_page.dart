@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:seckill_deal/component/background/arch_background.dart';
-import 'package:seckill_deal/pages/register/provider/provider.dart';
+import 'package:seckill_deal/pages/register/view_model/register_view_model.dart';
 import 'package:seckill_deal/pages/register/view/register_form.dart';
 
 class RegisterPage extends StatelessWidget {
@@ -12,7 +12,7 @@ class RegisterPage extends StatelessWidget {
     Size winSize = MediaQuery.of(context).size;
 
     return ChangeNotifierProvider(
-      create: (context) => RegisterProvider(),
+      create: (context) => RegisterViewModel(),
       child: Scaffold(
           body: SingleChildScrollView(
         child: Wrap(children: [

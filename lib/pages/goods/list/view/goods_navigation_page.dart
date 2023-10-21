@@ -5,7 +5,7 @@ import 'package:seckill_deal/common/auth/state.dart';
 import 'package:seckill_deal/common/utils/toast.dart';
 import 'package:seckill_deal/component/pure_bottom_bar.dart';
 import 'package:seckill_deal/pages/goods/list/view/goods_top_bar_page.dart';
-import 'package:seckill_deal/pages/login/provider/update_password_provider.dart';
+import 'package:seckill_deal/pages/login/view_model/update_password_view_model.dart';
 import 'package:seckill_deal/pages/order/view/page.dart';
 import 'package:seckill_deal/res/strings.dart';
 
@@ -51,10 +51,10 @@ class _GoodsNavigationPageState extends State<GoodsNavigationPage> {
 
   Widget _buildDrawer() {
     return ChangeNotifierProvider(
-      create: (context) => UpdatePasswordProvider(),
-      child:
-          Consumer<UpdatePasswordProvider>(builder: (context, provider, child) {
-        checkUpdatePasswordState(provider.state);
+      create: (context) => UpdatePasswordViewModel(),
+      child: Consumer<UpdatePasswordViewModel>(
+          builder: (context, viewModel, child) {
+        checkUpdatePasswordState(viewModel.state);
         return Drawer(
           child: ListView(
             padding: EdgeInsets.zero,
@@ -79,21 +79,21 @@ class _GoodsNavigationPageState extends State<GoodsNavigationPage> {
                             TextField(
                               obscureText: true,
                               onChanged: (value) =>
-                                  provider.oldPassword = value,
+                                  viewModel.oldPassword = value,
                               decoration: InputDecoration(
                                   labelText: stringRes(R.oldPassword)),
                             ),
                             TextField(
                               obscureText: true,
                               onChanged: (value) =>
-                                  provider.newPassword = value,
+                                  viewModel.newPassword = value,
                               decoration: InputDecoration(
                                   labelText: stringRes(R.newPassword)),
                             ),
                             TextField(
                               obscureText: true,
                               onChanged: (value) =>
-                                  provider.confirmNewPassword = value,
+                                  viewModel.confirmNewPassword = value,
                               decoration: InputDecoration(
                                   labelText: stringRes(R.confirmPassword)),
                             ),
@@ -108,7 +108,7 @@ class _GoodsNavigationPageState extends State<GoodsNavigationPage> {
                           ),
                           TextButton(
                             onPressed: () {
-                              provider.updatePassword();
+                              viewModel.updatePassword();
                               Navigator.pop(context);
                               Navigator.pop(context);
                             },

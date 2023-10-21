@@ -5,7 +5,7 @@ import 'package:seckill_deal/common/auth/state.dart';
 import 'package:seckill_deal/common/navigation/routes.dart';
 import 'package:seckill_deal/common/utils/toast.dart';
 import 'package:seckill_deal/component/input/icon_input.dart';
-import 'package:seckill_deal/pages/register/provider/provider.dart';
+import 'package:seckill_deal/pages/register/view_model/register_view_model.dart';
 import 'package:seckill_deal/res/strings.dart';
 
 class RegisterForm extends StatefulWidget {
@@ -22,8 +22,8 @@ class _RegisterFormState extends State<RegisterForm> {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<RegisterProvider>(builder: (context, provider, child) {
-      checkRegisterState(provider.state);
+    return Consumer<RegisterViewModel>(builder: (context, viewModel, child) {
+      checkRegisterState(viewModel.state);
       return Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
@@ -90,7 +90,7 @@ class _RegisterFormState extends State<RegisterForm> {
     if (_preValidate(_phoneNumController.text, _passwordController.text,
         _passwordConfirmController.text)) {
       context
-          .read<RegisterProvider>()
+          .read<RegisterViewModel>()
           .register(_phoneNumController.text, _passwordController.text);
     }
   }

@@ -5,7 +5,7 @@ import 'package:seckill_deal/common/auth/state.dart';
 import 'package:seckill_deal/common/navigation/routes.dart';
 import 'package:seckill_deal/common/utils/toast.dart';
 import 'package:seckill_deal/component/input/icon_input.dart';
-import 'package:seckill_deal/pages/login/provider/login_provider.dart';
+import 'package:seckill_deal/pages/login/view_model/login_view_model.dart';
 import 'package:seckill_deal/res/strings.dart';
 
 class LoginForm extends StatefulWidget {
@@ -21,8 +21,8 @@ class _LoginFormState extends State<LoginForm> {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<LoginProvider>(builder: (context, provider, child) {
-      checkLoginState(provider.state);
+    return Consumer<LoginViewModel>(builder: (context, viewModel, child) {
+      checkLoginState(viewModel.state);
       return Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
@@ -92,7 +92,7 @@ class _LoginFormState extends State<LoginForm> {
   Future<void> _doLogin() async {
     if (_preValidate(_phoneNumController.text, _passwordController.text)) {
       context
-          .read<LoginProvider>()
+          .read<LoginViewModel>()
           .login(_phoneNumController.text, _passwordController.text);
     }
   }

@@ -1,5 +1,5 @@
-import 'package:flutter/foundation.dart';
 import 'package:seckill_deal/common/auth/state.dart';
+import 'package:seckill_deal/common/view_model/base_view_model.dart';
 import 'package:seckill_deal/network/login/model/update_password_request.dart';
 import 'package:seckill_deal/network/result.dart';
 import 'package:seckill_deal/pages/login/repository/update_password_repository.dart';
@@ -7,14 +7,12 @@ import 'package:seckill_deal/res/strings.dart';
 
 import '../../../common/log/logger.dart';
 
-class UpdatePasswordProvider with ChangeNotifier {
+class UpdatePasswordViewModel extends BaseViewModel {
   final UpdatePasswordRepository _repository;
-  AuthState _state = const AuthInitial();
 
-  UpdatePasswordProvider({UpdatePasswordRepository? repository})
+  UpdatePasswordViewModel({UpdatePasswordRepository? repository})
       : _repository = repository ?? UpdatePasswordRepository();
 
-  AuthState get state => _state;
   String _oldPassword = '';
   String _newPassword = '';
   String _confirmNewPassword = '';
@@ -42,24 +40,19 @@ class UpdatePasswordProvider with ChangeNotifier {
 
   Future<void> updatePassword() async {
     if (_newPassword != confirmNewPassword) {
-      _updateState(AuthFailure(error: stringRes(R.mismatchError)));
+      super.updateState(AuthFailure(error: stringRes(R.mismatchError)));
       return;
     }
     try {
       Result response = await _repository
           .updatePassword(UpdatePasswordRequest(_oldPassword, _newPassword));
       if (response.code == 200) {
-        _updateState(AuthSuccess(''));
+        super.updateState(AuthSuccess(''));
       } else {
-        _updateState(AuthFailure(error: response.msg));
+        super.updateState(AuthFailure(error: response.msg));
       }
     } catch (e) {
       logger.e(e);
     }
-  }
-
-  void _updateState(AuthState state) {
-    _state = state;
-    notifyListeners();
   }
 }
