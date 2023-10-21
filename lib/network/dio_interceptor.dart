@@ -21,6 +21,9 @@ class DioInterceptor extends Interceptor {
   @override
   void onError(DioException err, ErrorInterceptorHandler handler) {
     int statusCode = err.response?.statusCode ?? 0;
+    if (statusCode == 401 || statusCode == 403) {
+      auth.logout();
+    }
     if (_statusCodeMessages.containsKey(statusCode)) {
       logger.i(_statusCodeMessages[statusCode]);
     } else {
