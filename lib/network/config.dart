@@ -1,6 +1,6 @@
 import "package:flutter_dotenv/flutter_dotenv.dart";
 
-import "../common/constants.dart";
+import '../common/constants/constants.dart';
 
 
 // ignore: non_constant_identifier_names

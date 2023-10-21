@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-import '../network/client.dart';
+import '../../network/client.dart';
 
 class GlobalBinding extends Bindings {
   @override

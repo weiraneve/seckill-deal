@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
-import 'package:seckill_deal/common/constants.dart';
+import 'package:seckill_deal/common/constants/constants.dart';
 import 'package:seckill_deal/network/login/model/response.dart';
 import 'package:seckill_deal/network/login/model/update_password_request.dart';
 import 'package:seckill_deal/network/result.dart';

@@ -1,7 +1,7 @@
 import "package:dio/dio.dart";
 import "package:seckill_deal/common/auth/auth.dart";
 
-import "../common/logger.dart";
+import '../common/log/logger.dart';
 import "../res/strings.dart";
 
 class DioInterceptor extends Interceptor {

@@ -1,6 +1,6 @@
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/get_instance.dart';
-import 'package:seckill_deal/common/logger.dart';
+import 'package:seckill_deal/common/log/logger.dart';
 import 'package:seckill_deal/network/client.dart';
 import 'package:seckill_deal/network/goods/detail/api.dart';
 import 'package:seckill_deal/network/goods/detail/model/goods_detail.dart';

@@ -5,7 +5,7 @@ import 'package:seckill_deal/network/result.dart';
 import 'package:seckill_deal/pages/login/repository/update_password_repository.dart';
 import 'package:seckill_deal/res/strings.dart';
 
-import '../../../common/logger.dart';
+import '../../../common/log/logger.dart';
 
 class UpdatePasswordProvider with ChangeNotifier {
   final UpdatePasswordRepository _repository;

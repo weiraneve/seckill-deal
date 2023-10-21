@@ -1,6 +1,6 @@
 import "package:dio/dio.dart";
 
-import "../common/constants.dart";
+import '../common/constants/constants.dart';
 import "config.dart";
 import "dio_interceptor.dart";
 

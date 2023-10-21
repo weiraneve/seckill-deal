@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:seckill_deal/common/logger.dart';
+import 'package:seckill_deal/common/log/logger.dart';
 import 'package:seckill_deal/network/order/model/order.dart';
 import 'package:seckill_deal/pages/Order/repository/repository.dart';
 

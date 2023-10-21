@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
-import 'package:seckill_deal/common/constants.dart';
+import 'package:seckill_deal/common/constants/constants.dart';
 import 'package:seckill_deal/network/order/model/response.dart';
 
 import '../config.dart';
