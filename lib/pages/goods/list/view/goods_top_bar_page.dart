@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:seckill_deal/pages/goods/list/view/goods_page.dart';
+import 'package:seckill_deal/pages/goods/list/view/goods_list_page.dart';
 import 'package:seckill_deal/res/strings.dart';
 
 class GoodsTopBarPage extends StatefulWidget {

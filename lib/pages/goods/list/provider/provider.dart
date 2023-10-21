@@ -13,9 +13,7 @@ class GoodsListProvider extends ChangeNotifier {
   final GoodsListRepository _repository;
 
   GoodsListProvider({GoodsListRepository? repository})
-      : _repository = repository ?? GoodsListRepository() {
-    fetchData();
-  }
+      : _repository = repository ?? GoodsListRepository();
 
   Future<void> fetchData() async {
     final response = await _repository.goodsList();

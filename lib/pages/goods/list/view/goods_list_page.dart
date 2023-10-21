@@ -13,15 +13,23 @@ class GoodsListPage extends StatefulWidget {
 }
 
 class _GoodsListPageState extends State<GoodsListPage> {
+
+  GoodsListProvider provider = GoodsListProvider();
+
+  @override
+  void initState() {
+    super.initState();
+    provider.fetchData();
+  }
+
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-        create: (context) => GoodsListProvider(),
-        child: Consumer<GoodsListProvider>(builder: (context, provider, child) {
+        create: (context) => provider,
+        child: Consumer<GoodsListProvider>(builder: (context, provider, _) {
           return Scaffold(
             body: ListView(
-              children:
-                  provider.getGoodsVosList(widget.tab.text).map((goodsVo) {
+              children: provider.getGoodsVosList(widget.tab.text).map((goodsVo) {
                 return GoodsCard(goodsVo: goodsVo, tabText: widget.tab.text);
               }).toList(),
             ),
