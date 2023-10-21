@@ -13,30 +13,28 @@ class GoodsDetailViewModel extends BaseViewModel {
   final GoodsDetailRepository _repository;
 
   GoodsDetailViewModel(this.goodsId, {GoodsDetailRepository? repository})
-      : _repository = repository ?? GoodsDetailRepository() {
-    _getDetail(goodsId);
-  }
+      : _repository = repository ?? GoodsDetailRepository();
 
-  Future<void> _getDetail(int goodsId) async {
+  Future<void> getDetail() async {
     Result<GoodsDetail> goodsDetail = await _repository.getDetail(goodsId);
     stockCount = goodsDetail.data.stockCount;
     goods = goodsDetail.data.goods;
     notifyListeners();
   }
 
-  Future<void> seckill(int goodsId) async {
+  Future<void> seckill() async {
     super.updateState(AuthLoading());
     String seckillResult = await _repository.seckill(goodsId);
     if (seckillResult == GoodsDetailRepository.success) {
       super.updateState(AuthSuccess(stringRes(R.successful)));
-      refreshGoodsDetail(goodsId);
+      refreshGoodsDetail();
     } else {
       super.updateState(AuthFailure(error: seckillResult));
     }
   }
 
-  void refreshGoodsDetail(int goodsId) {
-    _getDetail(goodsId);
+  void refreshGoodsDetail() {
+    getDetail();
     notifyListeners();
   }
 }

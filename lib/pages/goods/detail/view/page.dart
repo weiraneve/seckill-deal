@@ -7,84 +7,89 @@ import 'package:seckill_deal/common/utils/toast.dart';
 import 'package:seckill_deal/pages/goods/detail/view_model/goods_detail_view_model.dart';
 import 'package:seckill_deal/res/strings.dart';
 
-class GoodsDetailPage extends StatelessWidget {
+class GoodsDetailPage extends StatefulWidget {
   const GoodsDetailPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => GoodsDetailViewModel(Get.arguments),
-      child: _GoodsDetailPageBody(),
-    );
-  }
+  State<GoodsDetailPage> createState() => _GoodsDetailPageState();
 }
 
-class _GoodsDetailPageBody extends StatelessWidget {
+class _GoodsDetailPageState extends State<GoodsDetailPage> {
+  late GoodsDetailViewModel viewModel = GoodsDetailViewModel(Get.arguments);
+
+  @override
+  void initState() {
+    viewModel.getDetail();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    var viewModel = context.watch<GoodsDetailViewModel>();
     _checkSeckillState(context, viewModel.state);
-    var goods = viewModel.goods;
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(stringRes(R.goodsDetail)),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: ListView(
-          children: [
-            (goods?.goodsImg?.isEmpty ?? true)
-                ? const SizedBox.shrink()
-                : Image.network(
-                    goods?.goodsImg ?? '',
-                    height: 200,
-                    width: double.infinity,
-                    fit: BoxFit.cover,
-                  ),
-            const SizedBox(height: 20),
-            Card(
-              elevation: 4,
-              child: Padding(
-                padding: const EdgeInsets.all(16),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+    return ChangeNotifierProvider(
+      create: (context) => viewModel,
+      child: Scaffold(
+          appBar: AppBar(
+            title: Text(stringRes(R.goodsDetail)),
+          ),
+          body: Consumer<GoodsDetailViewModel>(
+            builder: (context, viewModel, _) {
+              return Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: ListView(
                   children: [
-                    Row(
-                      children: [
-                        Text(
-                          goods?.goodsName ?? '',
-                          style: const TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
+                    (viewModel.goods?.goodsImg?.isEmpty ?? true)
+                        ? const SizedBox.shrink()
+                        : Image.network(
+                            viewModel.goods?.goodsImg ?? '',
+                            height: 200,
+                            width: double.infinity,
+                            fit: BoxFit.cover,
                           ),
+                    const SizedBox(height: 20),
+                    Card(
+                      elevation: 4,
+                      child: Padding(
+                        padding: const EdgeInsets.all(16),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              children: [
+                                Text(
+                                  viewModel.goods?.goodsName ?? '',
+                                  style: const TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            const SizedBox(height: 8),
+                            Text("价格: ¥${viewModel.goods?.goodsPrice ?? 0}"),
+                            const SizedBox(height: 8),
+                            Text(
+                                "开始时间: ${formatDateTime(viewModel.goods?.startTime ?? '')}"),
+                            const SizedBox(height: 8),
+                            Text(
+                                "结束时间: ${formatDateTime(viewModel.goods?.endTime ?? '')}"),
+                            const SizedBox(height: 8),
+                            Text("库存: ${viewModel.stockCount ?? 0}"),
+                            const SizedBox(height: 16),
+                            ElevatedButton(
+                              onPressed: () => viewModel.seckill(),
+                              child: Text(stringRes(R.seckill)),
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
-                    const SizedBox(height: 8),
-                    Text("价格: ¥${goods?.goodsPrice ?? 0}"),
-                    const SizedBox(height: 8),
-                    Text("开始时间: ${formatDateTime(goods?.startTime ?? '')}"),
-                    const SizedBox(height: 8),
-                    Text("结束时间: ${formatDateTime(goods?.endTime ?? '')}"),
-                    const SizedBox(height: 8),
-                    Text("库存: ${viewModel.stockCount ?? 0}"),
-                    const SizedBox(height: 16),
-                    ElevatedButton(
-                      onPressed: () => _seckill(context, goods?.id ?? 0),
-                      child: Text(stringRes(R.seckill)),
+                      ),
                     ),
                   ],
                 ),
-              ),
-            ),
-          ],
-        ),
-      ),
+              );
+            },
+          )),
     );
-  }
-
-  void _seckill(BuildContext context, int goodsId) {
-    context.read<GoodsDetailViewModel>().seckill(goodsId);
   }
 
   void _checkSeckillState(BuildContext context, AuthState state) {
