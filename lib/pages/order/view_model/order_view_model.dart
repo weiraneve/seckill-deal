@@ -8,9 +8,7 @@ class OrderViewModel extends BaseViewModel {
   final OrderRepository _repository;
 
   OrderViewModel({OrderRepository? repository})
-      : _repository = repository ?? OrderRepository() {
-    getOrder();
-  }
+      : _repository = repository ?? OrderRepository();
 
   Future<void> getOrder() async {
     final response = await _repository.getOrder();

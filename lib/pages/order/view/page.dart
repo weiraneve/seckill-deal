@@ -3,16 +3,29 @@ import 'package:provider/provider.dart';
 import 'package:seckill_deal/common/utils/date_util.dart';
 import 'package:seckill_deal/pages/order/view_model/order_view_model.dart';
 
-class OrderPage extends StatelessWidget {
+class OrderPage extends StatefulWidget {
   const OrderPage({super.key});
+
+  @override
+  State<StatefulWidget> createState() => _OrderPageState();
+}
+
+class _OrderPageState extends State<OrderPage> {
+  OrderViewModel viewModel = OrderViewModel();
+
+  @override
+  void initState() {
+    viewModel.getOrder();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: ChangeNotifierProvider(
-        create: (context) => OrderViewModel(),
+        create: (context) => viewModel,
         child: Consumer<OrderViewModel>(
-          builder: (context, viewModel, child) {
+          builder: (context, viewModel, _) {
             return ListView(
               children: viewModel.orders.map((order) {
                 return Card(
