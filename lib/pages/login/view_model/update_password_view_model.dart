@@ -40,16 +40,16 @@ class UpdatePasswordViewModel extends BaseViewModel {
 
   Future<void> updatePassword() async {
     if (_newPassword != confirmNewPassword) {
-      super.updateState(AuthFailure(error: stringRes(R.mismatchError)));
+      state = AuthFailure(error: stringRes(R.mismatchError));
       return;
     }
     try {
       Result response = await _repository
           .updatePassword(UpdatePasswordRequest(_oldPassword, _newPassword));
       if (response.code == 200) {
-        super.updateState(AuthSuccess(''));
+        state = AuthSuccess('');
       } else {
-        super.updateState(AuthFailure(error: response.msg));
+        state = AuthFailure(error: response.msg);
       }
     } catch (e) {
       logger.e(e);

@@ -12,14 +12,14 @@ class LoginViewModel extends BaseViewModel {
       : _repository = repository ?? LoginRepository();
 
   Future<void> login(String mobile, String password) async {
-    super.updateState(AuthLoading());
+    state = AuthLoading();
     final response = await _repository.login(LoginRequest(mobile, password));
     if (response.code == 200) {
       await tokenStorage.set(response.data ?? '');
       await auth.loadAuthToken();
-      super.updateState(AuthSuccess(response.msg));
+      state = AuthSuccess(response.msg);
     } else {
-      super.updateState(AuthFailure(error: response.msg));
+      state = AuthFailure(error: response.msg);
     }
   }
 }

@@ -10,13 +10,13 @@ class RegisterViewModel extends BaseViewModel {
       : _repository = repository ?? RegisterRepository();
 
   Future<void> register(String mobile, String password) async {
-    super.updateState(AuthLoading());
+    state = AuthLoading();
     final response =
         await _repository.register(RegisterRequest(mobile, password));
     if (response.code == 200) {
-      super.updateState(AuthSuccess(response.msg));
+      state = AuthSuccess(response.msg);
     } else {
-      super.updateState(AuthFailure(error: response.msg));
+      state = AuthFailure(error: response.msg);
     }
   }
 }

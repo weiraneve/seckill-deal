@@ -6,7 +6,7 @@ class BaseViewModel extends ChangeNotifier {
 
   AuthState get state => _state;
 
-  void updateState(AuthState state) {
+  set state(AuthState state) {
     _state = state;
     notifyListeners();
   }

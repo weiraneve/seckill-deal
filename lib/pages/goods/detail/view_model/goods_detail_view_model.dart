@@ -23,13 +23,13 @@ class GoodsDetailViewModel extends BaseViewModel {
   }
 
   Future<void> seckill() async {
-    super.updateState(AuthLoading());
+    state = AuthLoading();
     String seckillResult = await _repository.seckill(goodsId);
     if (seckillResult == GoodsDetailRepository.success) {
-      super.updateState(AuthSuccess(stringRes(R.successful)));
+      state = AuthSuccess(stringRes(R.successful));
       refreshGoodsDetail();
     } else {
-      super.updateState(AuthFailure(error: seckillResult));
+      state = AuthFailure(error: seckillResult);
     }
   }
 
