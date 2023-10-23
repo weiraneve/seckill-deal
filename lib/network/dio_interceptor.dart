@@ -6,10 +6,8 @@ import "../res/strings.dart";
 
 class DioInterceptor extends Interceptor {
   final Map<int, String> _statusCodeMessages = {
-    400: "Bad Request",
     401: "Unauthorized",
     403: "Forbidden",
-    404: "Not Found",
   };
 
   @override
@@ -27,9 +25,18 @@ class DioInterceptor extends Interceptor {
     if (_statusCodeMessages.containsKey(statusCode)) {
       logger.i(_statusCodeMessages[statusCode]);
     } else {
-      logger.e(stringRes(R.serverErrorMessage));
+      switch (err.type) {
+        case DioExceptionType.connectionError:
+        case DioExceptionType.sendTimeout:
+        case DioExceptionType.receiveTimeout:
+        case DioExceptionType.cancel:
+        case DioExceptionType.badResponse:
+          logger.e(stringRes(R.serverError));
+        default:
+          logger.e(stringRes(R.otherError));
+          super.onError(err, handler);
+      }
     }
-    super.onError(err, handler);
   }
 }
 
