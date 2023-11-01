@@ -35,11 +35,11 @@
 ## 技术栈
 包括但不仅限于:
 - 项目很多功能基于[GetX](https://pub.dev/packages/get)，如依赖注入、路由管理、状态管理(controller)等功能。
-- 网络部分使用的是，[Dio](https://pub.dev/packages/dio) + [retrofit](https://pub.dev/packages/retrofit) +
+- 网络部分-[Dio](https://pub.dev/packages/dio) + [retrofit](https://pub.dev/packages/retrofit) +
   [json_serializable](https://pub.dev/packages/json_serializable)的组合。
-- 环境变量[flutter_dotenv](https://pub.dev/packages/flutter_dotenv)
-- MVVM[provider](https://pub.dev/packages/provider)
-- local storage存储token[flutter_secure_storage](https://pub.dev/packages/flutter_secure_storage)
+- 环境变量-[flutter_dotenv](https://pub.dev/packages/flutter_dotenv)
+- MVVM-[provider](https://pub.dev/packages/provider)
+- local storage存储token-[flutter_secure_storage](https://pub.dev/packages/flutter_secure_storage)
 
 # 其他
 如果把后端项目启动之后，设置好的测试账号和密码分别是`12345678910` 和 `123`，因为没有暂时没给客户端加上登录和注册的国密算法，所以没有加盐加密传输的逻辑。
