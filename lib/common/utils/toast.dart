@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Toast {
-  static toast(BuildContext context, String msg,
+  static _toast(BuildContext context, String msg,
       {duration = const Duration(milliseconds: 1000),
       Color? color,
       SnackBarAction? action}) {
@@ -14,7 +14,7 @@ class Toast {
   }
 
   static void error(BuildContext context, String msg) {
-    toast(
+    _toast(
       context,
       msg,
       color: Colors.red,
@@ -22,7 +22,7 @@ class Toast {
   }
 
   static void warning(BuildContext context, String msg) {
-    toast(
+    _toast(
       context,
       msg,
       color: Colors.orange,
@@ -30,7 +30,7 @@ class Toast {
   }
 
   static void success(BuildContext context, String msg) {
-    toast(
+    _toast(
       context,
       msg,
       color: Colors.green,
