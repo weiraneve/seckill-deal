@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:oktoast/oktoast.dart';
 import 'package:provider/provider.dart';
 import 'package:seckill_deal/common/auth/state.dart';
 import 'package:seckill_deal/common/navigation/routes.dart';
@@ -78,10 +79,10 @@ class _RegisterFormState extends State<RegisterForm> {
   void checkRegisterState(AuthState state) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (state is AuthSuccess) {
-        Toast.success(context, stringRes(R.successful));
+        showToast(stringRes(R.successful));
         Get.toNamed(Routes.goodsNavigation, arguments: state.msg);
       } else if (state is AuthFailure) {
-        Toast.error(context, '${stringRes(R.fail)} : ${state.error}!');
+        showToast('${stringRes(R.fail)} : ${state.error}!');
       }
     });
   }
@@ -118,13 +119,13 @@ class _RegisterFormState extends State<RegisterForm> {
 
   bool _preValidate(String phoneNum, String password, String confirmPassword) {
     if (phoneNum.isEmpty || password.isEmpty || confirmPassword.isEmpty) {
-      Toast.warning(context, stringRes(R.registerEmptyError));
+      showToast(stringRes(R.registerEmptyError));
       return false;
     }
     if (!RegExp(r'^[0-9]+$').hasMatch(phoneNum) ||
         phoneNum.length != 11 ||
         password != confirmPassword) {
-      Toast.warning(context, stringRes(R.registerFormatError));
+      showToast(stringRes(R.registerFormatError));
       return false;
     }
     return true;

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:oktoast/oktoast.dart';
 import 'package:provider/provider.dart';
 import 'package:seckill_deal/common/auth/state.dart';
 import 'package:seckill_deal/common/navigation/routes.dart';
@@ -81,10 +82,10 @@ class _LoginFormState extends State<LoginForm> {
   void checkLoginState(AuthState state) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (state is AuthSuccess) {
-        Toast.success(context, stringRes(R.successful));
+        showToast(stringRes(R.successful));
         Get.offAllNamed(Routes.goodsNavigation);
       } else if (state is AuthFailure) {
-        Toast.error(context, '${stringRes(R.fail)}: ${state.error}!');
+        showToast('${stringRes(R.fail)}: ${state.error}!');
       }
     });
   }
@@ -120,11 +121,11 @@ class _LoginFormState extends State<LoginForm> {
 
   bool _preValidate(String phoneNum, String password) {
     if (phoneNum.isEmpty || password.isEmpty) {
-      Toast.warning(context, stringRes(R.loginEmptyError));
+      showToast(stringRes(R.loginEmptyError));
       return false;
     }
     if (!RegExp(r'^[0-9]+$').hasMatch(phoneNum) || phoneNum.length != 11) {
-      Toast.warning(context, stringRes(R.phoneFormatError));
+      showToast(stringRes(R.phoneFormatError));
       return false;
     }
     return true;

@@ -440,6 +440,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.0"
+  oktoast:
+    dependency: "direct main"
+    description:
+      name: oktoast
+      sha256: f12a6f5c26986f8e48546104d4c0bea68dd82782940876ca299f7f406f521110
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.3.2+1"
   package_config:
     dependency: transitive
     description:

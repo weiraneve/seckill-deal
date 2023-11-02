@@ -1,4 +1,5 @@
 import "package:dio/dio.dart";
+import "package:oktoast/oktoast.dart";
 import "package:seckill_deal/common/auth/auth.dart";
 
 import '../common/log/logger.dart';
@@ -31,6 +32,7 @@ class DioInterceptor extends Interceptor {
         case DioExceptionType.receiveTimeout:
         case DioExceptionType.cancel:
         case DioExceptionType.badResponse:
+          showToast(stringRes(R.serverError));
           logger.e(stringRes(R.serverError));
         default:
           logger.e(stringRes(R.otherError));

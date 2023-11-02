@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:oktoast/oktoast.dart';
 import 'package:provider/provider.dart';
 import 'package:seckill_deal/common/auth/auth.dart';
 import 'package:seckill_deal/common/auth/state.dart';
@@ -136,9 +137,9 @@ class _GoodsNavigationPageState extends State<GoodsNavigationPage> {
   void checkUpdatePasswordState(AuthState state) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (state is AuthSuccess) {
-        Toast.success(context, stringRes(R.updateSuccess));
+        showToast(stringRes(R.updateSuccess));
       } else if (state is AuthFailure) {
-        Toast.error(context, '${stringRes(R.fail)} : ${state.error}!');
+        showToast('${stringRes(R.fail)} : ${state.error}!');
       }
     });
   }

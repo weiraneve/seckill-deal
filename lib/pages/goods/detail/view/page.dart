@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:oktoast/oktoast.dart';
 import 'package:provider/provider.dart';
 import 'package:seckill_deal/common/auth/state.dart';
 import 'package:seckill_deal/common/utils/date_util.dart';
@@ -95,9 +96,9 @@ class _GoodsDetailPageState extends State<GoodsDetailPage> {
   void _checkSeckillState(BuildContext context, AuthState state) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (state is AuthSuccess) {
-        Toast.success(context, stringRes(R.successful));
+        showToast(stringRes(R.successful));
       } else if (state is AuthFailure) {
-        Toast.error(context, '${stringRes(R.fail)}: ${state.error}!');
+        showToast('${stringRes(R.fail)}: ${state.error}!');
       }
     });
   }

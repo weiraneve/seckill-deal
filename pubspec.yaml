@@ -21,6 +21,7 @@ dependencies:
   provider: ^6.0.5
   flutter_secure_storage: ^8.0.0
   intl: ^0.17.0
+  oktoast: ^3.0.0
 
 dev_dependencies:
   flutter_test:
