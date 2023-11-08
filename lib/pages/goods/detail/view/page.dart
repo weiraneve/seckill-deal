@@ -4,7 +4,6 @@ import 'package:oktoast/oktoast.dart';
 import 'package:provider/provider.dart';
 import 'package:seckill_deal/common/auth/state.dart';
 import 'package:seckill_deal/common/utils/date_util.dart';
-import 'package:seckill_deal/common/utils/toast.dart';
 import 'package:seckill_deal/pages/goods/detail/view_model/goods_detail_view_model.dart';
 import 'package:seckill_deal/res/strings.dart';
 

@@ -3,7 +3,6 @@ import 'package:oktoast/oktoast.dart';
 import 'package:provider/provider.dart';
 import 'package:seckill_deal/common/auth/auth.dart';
 import 'package:seckill_deal/common/auth/state.dart';
-import 'package:seckill_deal/common/utils/toast.dart';
 import 'package:seckill_deal/component/pure_bottom_bar.dart';
 import 'package:seckill_deal/pages/goods/list/view/goods_top_bar_page.dart';
 import 'package:seckill_deal/pages/login/view_model/update_password_view_model.dart';

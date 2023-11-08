@@ -4,7 +4,6 @@ import 'package:oktoast/oktoast.dart';
 import 'package:provider/provider.dart';
 import 'package:seckill_deal/common/auth/state.dart';
 import 'package:seckill_deal/common/navigation/routes.dart';
-import 'package:seckill_deal/common/utils/toast.dart';
 import 'package:seckill_deal/component/input/icon_input.dart';
 import 'package:seckill_deal/pages/login/view_model/login_view_model.dart';
 import 'package:seckill_deal/res/strings.dart';
