@@ -44,4 +44,6 @@ const Map<R, String> enUS = {
   R.successful: 'successful',
   R.fail: 'fail',
   R.mismatchError: 'mismatch error',
+  R.goodsList: 'goods list',
+  R.orderDetail: 'order detail',
 };

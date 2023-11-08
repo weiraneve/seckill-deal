@@ -69,4 +69,6 @@ enum R {
   successful,
   fail,
   mismatchError,
+  goodsList,
+  orderDetail
 }

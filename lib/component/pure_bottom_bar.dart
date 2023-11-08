@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:seckill_deal/res/strings.dart';
 
 typedef IndexTapCallback = void Function(int);
 
@@ -14,7 +15,7 @@ class PureBottomBar extends StatefulWidget {
 }
 
 class _PureBottomBarState extends State<PureBottomBar> {
-  List<String> get bottomBar => const ['商品列表', '订单详情'];
+  List<String> get bottomBar => [stringRes(R.goodsList), stringRes(R.orderDetail)];
 
   List<IconData> get bottomBarIcon =>
       const [Icons.shopping_cart, Icons.fact_check];

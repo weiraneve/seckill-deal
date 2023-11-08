@@ -41,4 +41,6 @@ const Map<R, String> zhCN = {
   R.successful: '成功',
   R.fail: '失败',
   R.mismatchError: '不匹配错误',
+  R.goodsList: '商品列表',
+  R.orderDetail: '订单详情',
 };
