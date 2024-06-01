@@ -2,10 +2,12 @@
 
 用flutter来写的秒杀应用。
 
-本项目是 [秒杀应用后端](https://github.com/weiraneve/seckillcloud)
-的mobile端，这里还有[秒杀应用的web端](https://github.com/weiraneve/seckill-front)
-，以及[后台配置的web端](https://github.com/weiraneve/admin-manager)
-
+## 项目的前端与后端
+- [本项目的后端](https://github.com/weiraneve/seckillcloud)
+- [本项目的秒杀部分Web前端](https://github.com/weiraneve/seckill-front)
+- [本项目的后台配置部分Web前端](https://github.com/weiraneve/admin-manager)
+- [本项目的flutter客户端](https://github.com/weiraneve/seckill-deal)
+- [本项目的uniapp小程序端](https://github.com/weiraneve/seckill-mall-miniprogram)
 
 ## 界面和功能
 
